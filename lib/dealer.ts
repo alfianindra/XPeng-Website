@@ -1,25 +1,35 @@
 type DealerData = {
-  name:      string
-  whatsapp:  string
-  address:   string
-  hours: {
-    weekday: string
-    saturday: string
-    closed: string
+  name: string
+  whatsapp: string
+  address: string
+  workday: {
+    day: string
+    hours: string
   }
-  email:     string
+  email: string
+  social: {
+    instagram: string
+    youtube: string
+    tiktok: string
+    facebook: string
+  }
 }
 
 const dealer: DealerData = {
-  name:      'XPENG Jakarta',
-  whatsapp:  '62812345678',
-  address:   'Jl. Sudirman No. 1, Jakarta Pusat',
-  hours: {
-    weekday: 'Senin – Jumat, 09.00 – 18.00 WIB',
-    saturday: 'Sabtu, 09.00 – 15.00 WIB',
-    closed:  'Minggu & Hari Libur: Tutup',
+  name: 'XPENG Sunter Jakarta',
+  whatsapp: '6289668216082',
+  address: 'Blok A3 No.42, Jl. Danau Sunter Barat, RW.10, Sunter Agung, Tanjung Priok, North Jakarta City, Jakarta 14350',
+  workday: {
+    day: 'Senin - Minggu',
+    hours: '09.00 – 17.00 WIB'
   },
-  email:     'info@xpeng-jakarta.com',
-}
+  email: 'xpengsunter.office@gmail.com',
+  social: {
+    instagram: 'https://www.instagram.com/xpengmotors.sunter?igsh=OTZxZWl5NWoyY3Ay',
+    youtube: 'https://youtube.com/@xpeng_id?si=3GnJOSGckHgmYxyZ',
+    tiktok: 'https://www.tiktok.com/@xpengmotors.official?_r=1&_t=ZS-96Lb78Fsc45',
+    facebook: 'https://www.facebook.com/share/1CjWksYw63/',
+  },
+} as const
 
 export default dealer
