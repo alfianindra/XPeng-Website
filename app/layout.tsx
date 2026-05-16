@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: '%s | XPENG Indonesia',
   },
   description:
-    'Dealer resmi XPENG di Indonesia. Test drive G6, X9, dan X9 Pro. ' +
+    'Dealer resmi XPENG di Indonesia. Test drive G6 Pro, X9 Pro, dan X9 Pro+. ' +
     'Hubungi kami untuk informasi harga dan ketersediaan.',
   openGraph: {
     title: 'XPENG Indonesia — Dealer Resmi',

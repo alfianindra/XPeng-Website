@@ -63,7 +63,7 @@ export default function Footer() {
             <div className="flex flex-col gap-1.5 text-[14px] text-text-2">
               <span>{dealer.address}</span>
               <a
-                href={`https://wa.me/${dealer.whatsapp}`}
+                href={'https://wa.link/4kx99e'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-text-1 transition-colors duration-200"

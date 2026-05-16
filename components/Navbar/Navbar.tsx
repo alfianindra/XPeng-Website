@@ -34,7 +34,7 @@ export default function Navbar() {
               key={href}
               href={href}
               className={`text-[13px] px-3.5 py-1.5 rounded-sm transition-colors duration-200 ${
-                pathname === href
+                pathname === href || pathname.startsWith(href + '/')
                   ? 'text-text-1 bg-bg-card'
                   : 'text-text-3 hover:text-text-1'
               }`}
