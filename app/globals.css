@@ -1,12 +1,10 @@
 @import "tailwindcss";
 
 /* ── DESIGN TOKENS — Editorial Dark ─────────────────────────────────
-   @theme generates Tailwind utility classes automatically:
-   --color-*        → bg-*, text-*, border-* utilities
-   --spacing-nav    → h-nav, top-nav (nav height token)
-   --radius-*       → rounded-* utilities
-   --font-family-*  → font-* utilities
-   Pure grayscale. No accent colors. Do not add color variables.
+   --color-*       → bg-*, text-*, border-* utilities
+   --spacing-nav   → h-nav, top-nav
+   --radius-*      → rounded-*
+   --font-family-* → font-*
 ──────────────────────────────────────────────────────────────────── */
 @theme {
   --color-bg:         #212529;
@@ -25,70 +23,28 @@
 
   --spacing-nav: 64px;
 
-  /* Font variables — injected by next/font in layout.tsx */
   --font-family-sans:    var(--font-inter), system-ui, sans-serif;
   --font-family-display: var(--font-inter-tight), var(--font-inter), system-ui, sans-serif;
 }
 
-/* ── RESETS ──────────────────────────────────────────────────────── */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+/* ── BASE ────────────────────────────────────────────────────────── */
 body {
   @apply bg-bg text-text-1 font-sans;
-  font-size: 16px;
-  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button {
-  cursor: pointer;
-  font-family: inherit;
-  border: none;
-  background: none;
-}
-
-input,
-select,
-textarea {
-  font-family: inherit;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
 /* ── FADE-IN SCROLL ANIMATION ────────────────────────────────────── */
-/* Elements are VISIBLE by default. Off-screen elements at load time  */
-/* get .will-animate (opacity:0). IntersectionObserver adds .visible. */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.fade-in                 { opacity: 1; transform: translateY(0); }
-.fade-in.will-animate    { opacity: 0; transform: translateY(24px); }
-.fade-in.visible         { animation: fadeUp 0.6s ease both; }
+.fade-in              { opacity: 1; }
+.fade-in.will-animate { opacity: 0; transform: translateY(24px); }
+.fade-in.visible      { animation: fadeUp 0.6s ease both; }
 
-/* ── BURGER ANIMATION — nth-child, can't express with Tailwind ───── */
-/* Toggle .nav-burger-open on the <button>. The spans animate via      */
-/* nth-child selectors which Tailwind utilities cannot target.          */
+/* ── BURGER X ANIMATION — nth-child can't be expressed in Tailwind ── */
 @layer components {
   .nav-burger-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav-burger-open span:nth-child(2) { opacity: 0; }

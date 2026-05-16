@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 
 import type { Metadata } from 'next'
 import { Inter, Inter_Tight } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next';
 
 import './globals.css'
 
@@ -42,11 +43,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       className={`${inter.variable} ${interTight.variable}`}
     >
     <body>
-    {/*
-      Nav, Footer, and WhatsAppButton are added in Phase 2.
-      They will wrap {children} here once built.
-    */}
-    {children}
+      {children}
+      <Analytics />
     </body>
     </html>
   )
