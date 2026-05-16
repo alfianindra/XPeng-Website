@@ -32,7 +32,7 @@ export default function Navbar() {
         {/* Col 2 — Desktop nav links */}
         <div className="col-2 hidden md:flex items-center gap-1">
           {NAV_LINKS.map(({ href, label }) => {
-            console.log('pathname:', pathname, 'href:', href)
+            console.log('pathname:', pathname, 'href:', href, pathname === href || pathname.startsWith(href + '/'))
 
             return (
               <Link
