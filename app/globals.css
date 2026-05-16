@@ -1,26 +1,96 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ── DESIGN TOKENS — Editorial Dark ─────────────────────────────────
+   @theme generates Tailwind utility classes automatically:
+   --color-*        → bg-*, text-*, border-* utilities
+   --spacing-nav    → h-nav, top-nav (nav height token)
+   --radius-*       → rounded-* utilities
+   --font-family-*  → font-* utilities
+   Pure grayscale. No accent colors. Do not add color variables.
+──────────────────────────────────────────────────────────────────── */
+@theme {
+  --color-bg:         #212529;
+  --color-bg-card:    #343a40;
+  --color-bg-deep:    #1a1d20;
+  --color-bg-input:   #343a40;
+  --color-border:     #495057;
+  --color-border-sub: #343a40;
+  --color-text-1:     #f8f9fa;
+  --color-text-2:     #adb5bd;
+  --color-text-3:     #6c757d;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --spacing-nav: 64px;
+
+  /* Font variables — injected by next/font in layout.tsx */
+  --font-family-sans:    var(--font-inter), system-ui, sans-serif;
+  --font-family-display: var(--font-inter-tight), var(--font-inter), system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ── RESETS ──────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-bg text-text-1 font-sans;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── FADE-IN SCROLL ANIMATION ────────────────────────────────────── */
+/* Elements are VISIBLE by default. Off-screen elements at load time  */
+/* get .will-animate (opacity:0). IntersectionObserver adds .visible. */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in                 { opacity: 1; transform: translateY(0); }
+.fade-in.will-animate    { opacity: 0; transform: translateY(24px); }
+.fade-in.visible         { animation: fadeUp 0.6s ease both; }
+
+/* ── BURGER ANIMATION — nth-child, can't express with Tailwind ───── */
+/* Toggle .nav-burger-open on the <button>. The spans animate via      */
+/* nth-child selectors which Tailwind utilities cannot target.          */
+@layer components {
+  .nav-burger-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-burger-open span:nth-child(2) { opacity: 0; }
+  .nav-burger-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 }
