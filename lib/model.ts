@@ -29,8 +29,8 @@ export type CarModel = {
 
 export const models: CarModel[] = [
   {
-    slug:        'g6',
-    name:        'XPENG G6',
+    slug:        'g6-pro',
+    name:        'XPENG G6 Pro',
     tagline:     'Kecepatan. Kecerdasan. Keindahan.',
     description: 'SUV listrik performa tinggi dengan teknologi XNGP terdepan.',
     badge:       'Terlaris',
@@ -59,8 +59,8 @@ export const models: CarModel[] = [
     ],
   },
   {
-    slug:        'x9',
-    name:        'XPENG X9',
+    slug:        'x9-pro',
+    name:        'XPENG X9 Pro',
     tagline:     'MPV Listrik Premium. Redefinisi Kemewahan.',
     description: 'MPV listrik 6-seater untuk keluarga modern yang menuntut yang terbaik.',
     badge:       'Baru',
@@ -87,8 +87,8 @@ export const models: CarModel[] = [
     ],
   },
   {
-    slug:        'x9-pro',
-    name:        'XPENG X9 Pro',
+    slug:        'x9-pro-plus',
+    name:        'XPENG X9 Pro+',
     tagline:     'Puncak dari Segalanya.',
     description: 'Edisi Pro dari X9 dengan fitur dan finishing premium eksklusif.',
     badge:       'Premium',
