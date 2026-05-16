@@ -1,12 +1,15 @@
 'use client'
 
+import { useState } from 'react'
+
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+
 import { NAV_LINKS } from '@/lib/constants'
 
 export default function Navbar() {
   const pathname = usePathname()
+  console.log(pathname, NAV_LINKS)
   const [open, setOpen] = useState(false)
 
   const close = () => setOpen(false)
