@@ -22,6 +22,7 @@ export type CarModel = {
   priceFrom:   string
   heroImage:   string
   cardImage:   string
+  detailImage: string
   specs:       CarSpec[]
   gallery:     string[]
   colors:      CarColor[]
@@ -34,11 +35,12 @@ export const models: CarModel[] = [
     tagline:     'Kecepatan. Kecerdasan. Keindahan.',
     description: 'SUV listrik performa tinggi dengan teknologi XNGP terdepan.',
     badge:       'Terlaris',
-    priceFrom:   'Rp 899.000.000',
+    priceFrom:   'Rp 679.000.000',
     heroImage:
-      'https://s-cdn.xpeng.com/commoncms/prod/2026-03-19/6c37b69e7e11425cafde3b5797efe18f.jpg',
+      'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778940842/g6_pro_d2nmtm.png',
     cardImage:
       'https://s-cdn.xpeng.com/commoncms/prod/2025-07-03/cc362365922d4ff182d1d1cb81696298.jpg',
+    detailImage: 'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778940501/g6-white_efq8qu.png',
     specs: [
       { label: 'Range',      value: '755',  unit: 'km',   category: 'battery' },
       { label: '0–100 km/h', value: '3.9',  unit: 'det',  category: 'performance' },
@@ -55,9 +57,10 @@ export const models: CarModel[] = [
       'https://s-cdn.xpeng.com/commoncms/prod/2026-03-19/2c0de1e035944f1895841b78e978d033.jpg',
     ],
     colors: [
-      { name: 'Starry Black',    hex: '#1a1a2e', image: '' },
-      { name: 'Moonstone White', hex: '#f0f0f0', image: '' },
-      { name: 'Misty Grey',      hex: '#8d8d8d', image: '' },
+      { name: 'Arctic White',  hex: '#f2f2f2', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778940501/g6-white_efq8qu.png'  },
+      { name: 'Graphite Gray', hex: '#4f5154', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778940491/g6-gray_vyc0wr.png'   },
+      { name: 'Midnight Black',hex: '#1a1a1a', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778940489/g6-black_xfaaa7.png'  },
+      { name: 'Silver Frost',  hex: '#b8bcc0', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778940495/g6-silver_exrgv9.png' },
     ],
   },
   {
@@ -66,11 +69,11 @@ export const models: CarModel[] = [
     tagline:     'MPV Listrik Premium. Redefinisi Kemewahan.',
     description: 'MPV listrik 6-seater untuk keluarga modern yang menuntut yang terbaik.',
     badge:       'Baru',
-    priceFrom:   'Rp 1.899.000.000',
+    priceFrom:   'Rp 1.169.000.000',
     heroImage:
-      'https://s-cdn.xpeng.com/commoncms/prod/2026-03-19/a519b283b156449baafbf149cbef85be.jpg',
-    cardImage:
-      'https://s-cdn.xpeng.com/commoncms/prod/2026-03-19/2c0de1e035944f1895841b78e978d033.jpg',
+      'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778940853/x9_pro_zkbfhd.png',
+    cardImage:   'https://s-cdn.xpeng.com/commoncms/prod/2026-03-19/2c0de1e035944f1895841b78e978d033.jpg',
+    detailImage: 'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778941655/x9pro-white_ax57yx.png',
     specs: [
       { label: 'Range',      value: '702',   unit: 'km',    category: 'battery' },
       { label: '0–100 km/h', value: '5.7',   unit: 'det',   category: 'performance' },
@@ -84,8 +87,9 @@ export const models: CarModel[] = [
       'https://s-cdn.xpeng.com/commoncms/prod/2026-03-19/2c0de1e035944f1895841b78e978d033.jpg',
     ],
     colors: [
-      { name: 'Celestial Silver', hex: '#c0c0c0', image: '' },
-      { name: 'Midnight Black',   hex: '#1a1a1a', image: '' },
+      { name: 'Nebula White',    hex: '#f2f2f2', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778941655/x9pro-white_ax57yx.png'  },
+      { name: 'Dark Night Black',hex: '#1a1a1a', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778941594/x9pro-black_ag4kna.png'  },
+      { name: 'Crescent Silver', hex: '#b8bcc0', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778941642/x9pro-silver_bi7bsd.png' },
     ],
   },
   {
@@ -94,11 +98,12 @@ export const models: CarModel[] = [
     tagline:     'Puncak dari Segalanya.',
     description: 'Edisi Pro dari X9 dengan fitur dan finishing premium eksklusif.',
     badge:       'Premium',
-    priceFrom:   'Rp 2.199.000.000',
+    priceFrom:   'Rp 1.209.000.000',
     heroImage:
-      'https://s-cdn.xpeng.com/commoncms/prod/2025-07-03/f81d0706ac47412d9eb680964a40b834.jpg',
+      'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778940846/x9_pro_plus_jwysmh.png',
     cardImage:
       'https://s-cdn.xpeng.com/commoncms/prod/2026-03-19/a519b283b156449baafbf149cbef85be.jpg',
+    detailImage: 'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778941655/x9pro-white_ax57yx.png',
     specs: [
       { label: 'Range',        value: '702',   unit: 'km',    category: 'battery' },
       { label: '0–100 km/h',   value: '5.7',   unit: 'det',   category: 'performance' },
@@ -112,8 +117,10 @@ export const models: CarModel[] = [
       'https://s-cdn.xpeng.com/commoncms/prod/2026-03-19/a519b283b156449baafbf149cbef85be.jpg',
     ],
     colors: [
-      { name: 'Obsidian Black', hex: '#0a0a0a', image: '' },
-      { name: 'Pearl White',    hex: '#f5f5f5', image: '' },
+      { name: 'Nebula White',    hex: '#f2f2f2', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778941655/x9pro-white_ax57yx.png'  },
+      { name: 'Dark Night Black',hex: '#1a1a1a', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778941594/x9pro-black_ag4kna.png'  },
+      { name: 'Crescent Silver', hex: '#b8bcc0', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778941642/x9pro-silver_bi7bsd.png' },
+      { name: 'Matte Gray',      hex: '#6b6f72', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778941595/x9pro-gray_zgecv7.png'   },
     ],
   },
 ]

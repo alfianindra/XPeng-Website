@@ -1,0 +1,122 @@
+'use client'
+
+import { useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+
+import type { CarModel } from '@/lib/model'
+
+export default function ModelHero({ model }: { model: CarModel }) {
+  const [activeImage, setActiveImage] = useState(model.detailImage ?? model.heroImage)
+  const [selected, setSelected] = useState(0)
+
+  const handleColor = (i: number) => {
+    setSelected(i)
+    const img = model.colors[i].image
+    setActiveImage(img || model.heroImage)
+  }
+
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] min-h-[70vh]">
+
+      {/* Left — image */}
+      <div className="relative aspect-video lg:aspect-auto lg:self-stretch overflow-hidden bg-bg-card lg:border-r lg:border-border">
+        <Image
+          src={activeImage}
+          alt={model.name}
+          fill
+          className="object-contain object-center transition-opacity duration-300 scale-90"
+          priority
+          sizes="(max-width: 1024px) 100vw, 60vw"
+        />
+        {/* Inset separator — mobile only, sits above the image */}
+        <div className="absolute bottom-0 left-6 right-6 h-px bg-border z-10 lg:hidden" />
+      </div>
+
+      {/* Right — stats panel */}
+      <div className="flex flex-col justify-center px-6 py-10 lg:px-10 lg:py-16 bg-bg-card">
+        {model.badge && (
+          <span className="inline-block self-start text-[11px] font-semibold tracking-[0.12em] uppercase text-text-3 border border-border-sub mb-4 px-2.5 py-1 rounded-sm">
+            {model.badge}
+          </span>
+        )}
+        <h1 className="font-display text-[clamp(28px,4vw,52px)] font-black tracking-[-0.04em] text-text-1 leading-none mb-3">
+          {model.name}
+        </h1>
+        <p className="text-[15px] text-text-2 leading-relaxed mb-6">{model.tagline}</p>
+        <p className="text-[13px] text-text-3 mb-6">
+          Mulai dari{' '}
+          <span className="font-display text-[22px] font-bold text-text-1 ml-1">
+            {model.priceFrom}
+          </span>
+        </p>
+
+        {/* Top 3 specs */}
+        <div className="grid grid-cols-3 mb-8 pb-8 border-b border-border-sub divide-x divide-border">
+          {model.specs.slice(0, 3).map(spec => (
+            <div key={spec.label} className="text-center px-3">
+              <div className="font-display text-[22px] font-bold text-text-1 leading-none">
+                {spec.value}
+                <span className="text-[12px] font-normal text-text-3 ml-0.5">{spec.unit}</span>
+              </div>
+              <div className="text-[11px] text-text-3 mt-1">{spec.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Color picker */}
+        {model.colors.length > 0 && (
+          <div className="mb-8">
+            <p className="text-[12px] font-semibold tracking-[0.08em] uppercase text-text-3 mb-3">
+              Warna —{' '}
+              <span className="text-text-2 normal-case font-normal tracking-normal">
+                {model.colors[selected].name}
+              </span>
+            </p>
+            <div className="flex gap-2.5 flex-wrap">
+              {model.colors.map((color, i) => (
+                <button
+                  key={color.name}
+                  onClick={() => handleColor(i)}
+                  title={color.name}
+                  className={`w-11 h-11 rounded-full border-2 transition-all duration-200 flex items-center justify-center ${
+                    i === selected
+                      ? 'border-text-1 scale-110'
+                      : 'border-border-sub hover:border-border'
+                  }`}
+                  aria-pressed={i === selected}
+                  aria-label={color.name}
+                >
+                  <span
+                    className="w-7 h-7 rounded-full block"
+                    style={{ backgroundColor: color.hex }}
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row gap-3">
+          <Link
+            href="/contact"
+            className="flex-1 text-center text-[14px] font-semibold bg-text-1 text-bg py-3 rounded-sm hover:bg-[#e9ecef] transition-colors duration-200"
+          >
+            Jadwalkan Test Drive
+          </Link>
+          <a
+            href={`https://wa.me/6289668216082?text=${encodeURIComponent(
+              `Halo, saya tertarik dengan ${model.name}. Boleh saya minta informasi?`
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 text-center text-[14px] font-semibold border border-border text-text-1 py-3 rounded-sm hover:border-text-1 transition-colors duration-200"
+          >
+            Chat WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  )
+}

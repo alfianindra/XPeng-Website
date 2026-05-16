@@ -1,28 +1,14 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
+
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { ChevronLeft, ChevronRight } from '@/app/icons'
 import { models } from '@/lib/model'
 
 const INTERVAL = 5000
-
-function ChevronLeft() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <polyline points="15,18 9,12 15,6" />
-    </svg>
-  )
-}
-
-function ChevronRight() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <polyline points="9,18 15,12 9,6" />
-    </svg>
-  )
-}
 
 export default function HeroCarousel() {
   const [cur, setCur] = useState(0)
@@ -101,25 +87,25 @@ export default function HeroCarousel() {
               sizes="100vw"
             />
             {/* Dark gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1a1d20]/95 via-[#1a1d20]/30 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#1a1d20]/75 via-[#1a1d20]/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1a1d20]/60 via-[#1a1d20]/15 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1a1d20]/40 via-[#1a1d20]/10 to-transparent" />
 
             {/* Slide content */}
             <div className="absolute inset-0 flex flex-col justify-end px-6 pb-24 md:px-16 md:pb-32 max-w-5xl">
               {model.badge && (
-                <span className="inline-block self-start text-[11px] font-semibold tracking-[0.12em] uppercase text-text-3 border border-border-sub mb-4 px-2.5 py-1 rounded-sm">
+                <span className="inline-block self-start text-[11px] font-semibold tracking-[0.12em] uppercase text-text-1 border border-border-sub mb-4 px-2.5 py-1 rounded-sm">
                   {model.badge}
                 </span>
               )}
               <h2 className="font-display text-[clamp(36px,6vw,80px)] font-black tracking-[-0.04em] text-text-1 leading-none mb-3">
                 {model.name}
               </h2>
-              <p className="text-[15px] md:text-[18px] text-text-2 mb-4 max-w-md leading-relaxed">
+              <p className="text-[15px] md:text-[18px] text-text-1 mb-4 max-w-md leading-relaxed">
                 {model.tagline}
               </p>
-              <p className="text-[13px] text-text-3 mb-7">
+              <p className="text-[13px] text-text-1 mb-7">
                 Mulai dari{' '}
-                <span className="text-text-2 font-semibold">{model.priceFrom}</span>
+                <span className="text-text-1 font-semibold">{model.priceFrom}</span>
               </p>
               <div className="flex gap-3 flex-wrap">
                 <Link
