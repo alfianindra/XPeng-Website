@@ -1,6 +1,6 @@
 import {
   CarModel, 
-} from '@/lib/model';
+} from '@/lib/model'
 
 export function getModel(slug: string, models: CarModel[]): CarModel | undefined {
   return models.find((model) => model.slug === slug)
