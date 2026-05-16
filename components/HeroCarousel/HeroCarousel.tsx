@@ -13,6 +13,7 @@ const INTERVAL = 5000
 export default function HeroCarousel() {
   const [cur, setCur] = useState(0)
   const [paused, setPaused] = useState(false)
+  const [loadedSlides, setLoadedSlides] = useState<Set<number>>(new Set())
   const containerRef = useRef<HTMLDivElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
   const widthRef = useRef(0)
@@ -77,14 +78,19 @@ export default function HeroCarousel() {
             style={{ width: `${100 / models.length}%` }}
             aria-hidden={i !== cur}
           >
+            {/* Shimmer skeleton */}
+            {!loadedSlides.has(i) && (
+              <div className="absolute inset-0 bg-bg-deep animate-pulse z-10" />
+            )}
             {/* Background image */}
             <Image
               src={model.heroImage}
               alt={model.name}
               fill
-              className="object-cover object-center"
+              className={`object-cover object-center transition-opacity duration-700 ${loadedSlides.has(i) ? 'opacity-100' : 'opacity-0'}`}
               priority={i === 0}
               sizes="100vw"
+              onLoad={() => setLoadedSlides(prev => new Set(prev).add(i))}
             />
             {/* Dark gradient overlays */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#1a1d20]/60 via-[#1a1d20]/15 to-transparent" />

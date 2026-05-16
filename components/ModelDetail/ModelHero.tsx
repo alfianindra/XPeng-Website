@@ -9,10 +9,12 @@ import type { CarModel } from '@/lib/model'
 export default function ModelHero({ model }: { model: CarModel }) {
   const [activeImage, setActiveImage] = useState(model.detailImage ?? model.heroImage)
   const [selected, setSelected] = useState(0)
+  const [imgLoaded, setImgLoaded] = useState(false)
 
   const handleColor = (i: number) => {
     setSelected(i)
     const img = model.colors[i].image
+    setImgLoaded(false)
     setActiveImage(img || model.heroImage)
   }
 
@@ -21,13 +23,18 @@ export default function ModelHero({ model }: { model: CarModel }) {
 
       {/* Left — image */}
       <div className="relative aspect-video lg:aspect-auto lg:self-stretch overflow-hidden bg-bg-card lg:border-r lg:border-border">
+        {/* Shimmer skeleton shown while image loads */}
+        {!imgLoaded && (
+          <div className="absolute inset-0 bg-bg-card animate-pulse z-10" />
+        )}
         <Image
           src={activeImage}
           alt={model.name}
           fill
-          className="object-contain object-center transition-opacity duration-300 scale-90"
+          className={`object-contain object-center scale-90 transition-opacity duration-500 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
           priority
           sizes="(max-width: 1024px) 100vw, 60vw"
+          onLoad={() => setImgLoaded(true)}
         />
         {/* Inset separator — mobile only, sits above the image */}
         <div className="absolute bottom-0 left-6 right-6 h-px bg-border z-10 lg:hidden" />
