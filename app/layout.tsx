@@ -2,9 +2,15 @@ import { ReactNode } from 'react'
 
 import type { Metadata } from 'next'
 import { Inter, Inter_Tight } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from '@vercel/analytics/next'
 
 import './globals.css'
+
+import {
+  Navbar,
+  Footer,
+  WhatsappButton
+} from '@/components'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -43,7 +49,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       className={`${inter.variable} ${interTight.variable}`}
     >
     <body>
+      <Navbar />
       {children}
+      <Footer />
+      <WhatsappButton />
       <Analytics />
     </body>
     </html>

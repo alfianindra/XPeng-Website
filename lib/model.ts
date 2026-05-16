@@ -1,19 +1,19 @@
 export type SpecCategory = 'performance' | 'battery' | 'dimensions' | 'safety'
 
-export interface CarSpec {
+export type CarSpec = {
   label: string
   value: string
   unit:  string
   category: SpecCategory
 }
 
-export interface CarColor {
+export type CarColor = {
   name:  string
   hex:   string
   image: string
 }
 
-export interface CarModel {
+export type CarModel = {
   slug:        string
   name:        string
   tagline:     string
