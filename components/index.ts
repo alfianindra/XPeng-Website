@@ -1,3 +1,7 @@
 export { Navbar } from './Navbar'
 export { Footer } from './Footer'
 export { WhatsappButton } from './WhatsappButton'
+export { HeroCarousel } from './HeroCarousel'
+export { ModelCard } from './ModelCard'
+export { LeadForm } from './LeadForm'
+export { FadeIn } from './FadeIn'

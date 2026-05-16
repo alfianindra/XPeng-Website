@@ -51,6 +51,8 @@ export const models: CarModel[] = [
       'https://s-cdn.xpeng.com/commoncms/prod/2026-03-19/6c37b69e7e11425cafde3b5797efe18f.jpg',
       'https://s-cdn.xpeng.com/commoncms/prod/2025-07-03/cc362365922d4ff182d1d1cb81696298.jpg',
       'https://s-cdn.xpeng.com/commoncms/prod/2026-03-19/2c0de1e035944f1895841b78e978d033.jpg',
+      'https://s-cdn.xpeng.com/commoncms/prod/2026-03-19/2c0de1e035944f1895841b78e978d033.jpg',
+      'https://s-cdn.xpeng.com/commoncms/prod/2026-03-19/2c0de1e035944f1895841b78e978d033.jpg',
     ],
     colors: [
       { name: 'Starry Black',    hex: '#1a1a2e', image: '' },
