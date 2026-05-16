@@ -44,6 +44,11 @@ body {
 .fade-in.will-animate { opacity: 0; transform: translateY(24px); }
 .fade-in.visible      { animation: fadeUp 0.6s ease both; }
 
+/* ── SAFELIST — classes only used in dynamic expressions ─────────── */
+/* Tailwind's scanner may miss classes inside ternary expressions.     */
+/* @source inline() guarantees they're always in the production CSS.   */
+@source inline("text-text-1 bg-bg-card text-text-3 hover:text-text-1 opacity-100 translate-y-0 pointer-events-auto opacity-0 -translate-y-2 pointer-events-none nav-burger-open");
+
 /* ── BURGER X ANIMATION — nth-child can't be expressed in Tailwind ── */
 @layer components {
   .nav-burger-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
