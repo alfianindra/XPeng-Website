@@ -9,7 +9,6 @@ import { NAV_LINKS } from '@/lib/constants'
 
 export default function Navbar() {
   const pathname = usePathname()
-  console.log(pathname, NAV_LINKS)
   const [open, setOpen] = useState(false)
 
   const close = () => setOpen(false)
@@ -32,19 +31,23 @@ export default function Navbar() {
 
         {/* Col 2 — Desktop nav links */}
         <div className="col-2 hidden md:flex items-center gap-1">
-          {NAV_LINKS.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`text-[13px] px-3.5 py-1.5 rounded-sm transition-colors duration-200 ${
-                pathname === href || pathname.startsWith(href + '/')
-                  ? 'text-text-1 bg-bg-card'
-                  : 'text-text-3 hover:text-text-1'
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
+          {NAV_LINKS.map(({ href, label }) => {
+            console.log('pathname:', pathname, 'href:', href)
+
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={`text-[13px] px-3.5 py-1.5 rounded-sm transition-colors duration-200 ${
+                  pathname === href || pathname.startsWith(href + '/')
+                    ? 'text-text-1 bg-bg-card'
+                    : 'text-text-3 hover:text-text-1'
+                }`}
+              >
+                {label}
+              </Link>
+            )
+          })}
         </div>
 
         {/* Col 3 — CTA + burger */}
