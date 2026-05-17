@@ -9,19 +9,20 @@ import { Whatsapp as WhatsappIcon } from '@/icons'
 
 export default function WhatsAppButton() {
   const pathname = usePathname()
-  // ctaVisible: true when the mobile sticky CTA bar is showing (hero scrolled out of view)
-  const [ctaVisible, setCtaVisible] = useState(false)
+  // heroGone: true when #overview has scrolled out of view
+  const [heroGone, setHeroGone] = useState(false)
+  // Only elevate the FAB on model pages — anywhere else there's no sticky CTA bar
+  const ctaVisible = pathname.startsWith('/models/') && heroGone
 
   useEffect(() => {
-    // Reset on every route change so stale state doesn't carry over
-    setCtaVisible(false)
-
     // #overview only exists on model detail pages — no-op on other pages
     const hero = document.getElementById('overview')
     if (!hero) return
 
+    // Fires immediately with the current intersection state on attach,
+    // so no manual setState reset needed when navigating between pages
     const observer = new IntersectionObserver(
-      ([entry]) => setCtaVisible(!entry.isIntersecting),
+      ([entry]) => setHeroGone(!entry.isIntersecting),
       { threshold: 0 }
     )
     observer.observe(hero)
