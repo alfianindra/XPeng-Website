@@ -13,27 +13,20 @@ export default function WhatsAppButton() {
   const [ctaVisible, setCtaVisible] = useState(false)
 
   useEffect(() => {
+    // Reset on every route change so stale state doesn't carry over
+    setCtaVisible(false)
+
     // #overview only exists on model detail pages — no-op on other pages
     const hero = document.getElementById('overview')
     if (!hero) return
 
-    // Small delay so the CTA bar finishes sliding in before the button moves
-    let timer: ReturnType<typeof setTimeout>
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        clearTimeout(timer)
-        if (!entry.isIntersecting) {
-          // CTA bar is about to appear — wait for it to start sliding in
-          timer = setTimeout(() => setCtaVisible(true), 50)
-        } else {
-          setCtaVisible(false)
-        }
-      },
+      ([entry]) => setCtaVisible(!entry.isIntersecting),
       { threshold: 0 }
     )
     observer.observe(hero)
-    return () => { observer.disconnect(); clearTimeout(timer) }
-  }, [])
+    return () => observer.disconnect()
+  }, [pathname])
 
   const phone = dealer.whatsapp
   const text  = encodeURIComponent(
