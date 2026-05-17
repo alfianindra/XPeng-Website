@@ -4,12 +4,6 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   images: {
     remotePatterns: [
-      // XPENG official product photos
-      {
-        protocol: 'https',
-        hostname: 's-cdn.xpeng.com',
-      },
-      // Cloudinary — dealer photos, showroom images, promo banners
       {
         protocol: 'https',
         hostname: 'res.cloudinary.com',

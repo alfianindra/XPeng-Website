@@ -99,7 +99,7 @@ export default function Gallery({ images, modelName }: { images: string[]; model
             {images.map((url, i) => (
               <div
                 key={url + i}
-                className="relative aspect-[16/10] cursor-zoom-in"
+                className="relative aspect-[4/3] md:aspect-[16/9] cursor-zoom-in"
                 style={{ width: `${100 / images.length}%` }}
                 onClick={() => openLightbox(i)}
               >
@@ -191,7 +191,7 @@ export default function Gallery({ images, modelName }: { images: string[]; model
             className="relative w-full max-w-6xl max-h-[90vh] mx-4"
             onClick={e => e.stopPropagation()}
           >
-            <div className="relative aspect-[16/10]">
+            <div className="relative aspect-[16/9]">
               <Image
                 src={images[lightboxIdx]}
                 alt={`${modelName} foto ${lightboxIdx + 1}`}

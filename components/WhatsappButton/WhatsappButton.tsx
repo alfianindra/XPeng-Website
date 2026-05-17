@@ -32,7 +32,7 @@ export default function WhatsAppButton() {
       href={`https://wa.me/${phone}?text=${text}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed right-4 md:right-6 z-50 w-14 h-14 rounded-full bg-text-1 text-white flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.15)] hover:scale-[1.08] hover:opacity-80 transition-all duration-300 ease-out cursor-pointer"
+      className="lg:hidden fixed right-4 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_4px_20px_rgba(37,211,102,0.35)] hover:scale-[1.08] hover:bg-[#20bc5a] transition-[bottom,transform] duration-300 ease-out cursor-pointer"
       style={{ bottom: ctaVisible ? '88px' : '24px' }}
       aria-label="Chat via WhatsApp"
     >

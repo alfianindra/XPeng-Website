@@ -57,10 +57,11 @@ export default function Footer() {
             <Image
               src="/logo.png"
               alt="XPENG"
-              width={400}
-              height={28}
+              width={0}
+              height={0}
+              sizes="160px"
               className="h-6 w-auto object-contain mb-3"
-              style={{ filter: 'brightness(0)', width: 'auto' }}
+              style={{ filter: 'brightness(0)' }}
             />
             <p className="text-[14px] text-text-3 leading-relaxed mb-4">
               Dealer resmi XPENG di Indonesia.<br />

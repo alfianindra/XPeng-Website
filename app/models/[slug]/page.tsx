@@ -8,6 +8,7 @@ import SpecGrid from '@/components/ModelDetail/SpecGrid'
 import Gallery from '@/components/ModelDetail/Gallery'
 import CompareTable from '@/components/ModelDetail/CompareTable'
 import { DesktopCtaSidebar, MobileCtaBar } from '@/components/ModelDetail/StickyCtaBar'
+import FeatureShowcase from '@/components/ModelDetail/FeatureShowcase'
 import FadeIn from '@/components/FadeIn/FadeIn'
 
 export function generateStaticParams() {
@@ -51,6 +52,9 @@ export default async function ModelPage({
 
       {/* ── Sticky Tab Bar ────────────────────────────────────────────── */}
       <TabNav />
+
+      {/* ── Feature Showcase (full-width, outside sidebar grid) ──────── */}
+      <FeatureShowcase features={model.features} />
 
       {/* ── Main content + Desktop sidebar ────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-6 py-12">

@@ -28,8 +28,9 @@ const interTight = Inter_Tight({
 
 export const metadata: Metadata = {
   icons: {
-    icon: '/icon.png',
-    apple: '/icon.png',
+    icon: [{ url: '/favicon.ico', sizes: 'any' }],
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
   },
   title: {
     default: 'XPENG Indonesia — Dealer Resmi',
