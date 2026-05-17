@@ -25,7 +25,7 @@ const dealer: DealerData = {
   },
   email: 'xpengsunter.office@gmail.com',
   social: {
-    instagram: 'https://www.instagram.com/xpengmotors.sunter?igsh=OTZxZWl5NWoyY3Ay',
+    instagram: 'https://www.instagram.com/xpengsunter_harry?igsh=OTZxZWl5NWoyY3Ay',
     youtube: 'https://youtube.com/@xpeng_id?si=3GnJOSGckHgmYxyZ',
     tiktok: 'https://www.tiktok.com/@xpengmotors.official?_r=1&_t=ZS-96Lb78Fsc45',
     facebook: 'https://www.facebook.com/share/1CjWksYw63/',
