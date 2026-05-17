@@ -26,11 +26,10 @@ export default function Navbar() {
           <Image
             src="/logo.png"
             alt="XPENG"
-            width={0}
-            height={0}
-            sizes="200px"
-            className="h-5 md:h-6 w-auto object-contain"
-            style={{ filter: 'brightness(0)' }}
+            width={955}
+            height={165}
+            className="h-6 md:h-7 w-auto object-contain"
+            style={{ filter: 'brightness(0)', width: 'auto' }}
             priority
           />
         </Link>

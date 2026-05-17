@@ -57,18 +57,22 @@ export default function Footer() {
             <Image
               src="/logo.png"
               alt="XPENG"
-              width={0}
-              height={0}
-              sizes="160px"
+              width={955}
+              height={165}
               className="h-6 w-auto object-contain mb-3"
-              style={{ filter: 'brightness(0)' }}
+              style={{ filter: 'brightness(0)', width: 'auto' }}
             />
             <p className="text-[14px] text-text-3 leading-relaxed mb-4">
               Dealer resmi XPENG di Indonesia.<br />
               Kendaraan listrik terdepan untuk masa depan yang berkelanjutan.
             </p>
             <div className="flex flex-col gap-1.5 text-[14px] text-text-2">
-              <span>{dealer.address}</span>
+              <a
+                href="https://maps.app.goo.gl/WswAfP5QMFAU75sk6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-text-1 transition-colors duration-200"
+              >{dealer.address}</a>
               <a
                 href={'https://wa.link/4kx99e'}
                 target="_blank"

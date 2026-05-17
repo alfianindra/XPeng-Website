@@ -1,10 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile'
 
 import { models } from '@/lib/model'
 
 type State = 'idle' | 'loading' | 'success' | 'error'
+
+const SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ''
 
 export default function LeadForm({ defaultModel = '' }: { defaultModel?: string }) {
   const [state, setState] = useState<State>('idle')
@@ -14,6 +17,8 @@ export default function LeadForm({ defaultModel = '' }: { defaultModel?: string 
     model: defaultModel,
     date: '',
   })
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  const turnstileRef = useRef<TurnstileInstance>(undefined)
 
   const handle = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -25,11 +30,23 @@ export default function LeadForm({ defaultModel = '' }: { defaultModel?: string 
       const res = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, source: 'home' }),
+        body: JSON.stringify({
+          ...form,
+          source: 'home',
+          ...(turnstileToken ? { turnstileToken } : {}),
+        }),
       })
-      setState(res.ok ? 'success' : 'error')
+      if (res.ok) {
+        setState('success')
+      } else {
+        setState('error')
+        turnstileRef.current?.reset()
+        setTurnstileToken(null)
+      }
     } catch {
       setState('error')
+      turnstileRef.current?.reset()
+      setTurnstileToken(null)
     }
   }
 
@@ -111,16 +128,27 @@ export default function LeadForm({ defaultModel = '' }: { defaultModel?: string 
         min={new Date().toISOString().split('T')[0]}
       />
 
+      {/* Turnstile — only renders when site key is configured */}
+      {SITE_KEY && (
+        <Turnstile
+          ref={turnstileRef}
+          siteKey={SITE_KEY}
+          onSuccess={token => setTurnstileToken(token)}
+          onExpire={() => setTurnstileToken(null)}
+          options={{ theme: 'light', size: 'flexible' }}
+        />
+      )}
+
       {state === 'error' && (
-        <p className="text-[13px] text-red-400">
+        <p className="text-[13px] text-red-500">
           Terjadi kesalahan. Silakan coba lagi atau hubungi kami via WhatsApp.
         </p>
       )}
 
       <button
         type="submit"
-        disabled={state === 'loading'}
-        className="w-full text-[15px] font-semibold bg-text-1 text-bg py-3.5 rounded-sm hover:bg-white/90 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled={state === 'loading' || (!!SITE_KEY && !turnstileToken)}
+        className="w-full text-[15px] font-semibold bg-text-1 text-bg py-3.5 rounded-sm hover:opacity-90 transition-opacity duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {state === 'loading' ? 'Mengirim...' : 'Jadwalkan Test Drive'}
       </button>
