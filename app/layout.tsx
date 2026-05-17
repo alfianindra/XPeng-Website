@@ -27,6 +27,10 @@ const interTight = Inter_Tight({
 })
 
 export const metadata: Metadata = {
+  icons: {
+    icon: '/icon.png',
+    apple: '/icon.png',
+  },
   title: {
     default: 'XPENG Indonesia — Dealer Resmi',
     template: '%s | XPENG Indonesia',

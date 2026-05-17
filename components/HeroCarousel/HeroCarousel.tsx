@@ -5,7 +5,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { ChevronLeft, ChevronRight } from '@/app/icons'
+import { ChevronLeft, ChevronRight } from '@/icons'
 import { models } from '@/lib/model'
 
 const INTERVAL = 5000
@@ -78,20 +78,34 @@ export default function HeroCarousel() {
             style={{ width: `${100 / models.length}%` }}
             aria-hidden={i !== cur}
           >
-            {/* Shimmer skeleton */}
+            {/* Shimmer skeleton — clears when the visible image fires onLoad */}
             {!loadedSlides.has(i) && (
               <div className="absolute inset-0 bg-bg-deep animate-pulse z-10" />
             )}
-            {/* Background image */}
-            <Image
-              src={model.heroImage}
-              alt={model.name}
-              fill
-              className={`object-cover object-center transition-opacity duration-700 ${loadedSlides.has(i) ? 'opacity-100' : 'opacity-0'}`}
-              priority={i === 0}
-              sizes="100vw"
-              onLoad={() => setLoadedSlides(prev => new Set(prev).add(i))}
-            />
+            {/* Mobile hero image (portrait) — shown below md breakpoint */}
+            <div className="absolute inset-0 block md:hidden">
+              <Image
+                src={model.heroImageMobile}
+                alt={model.name}
+                fill
+                className={`object-cover object-center transition-opacity duration-700 ${loadedSlides.has(i) ? 'opacity-100' : 'opacity-0'}`}
+                priority={i === 0}
+                sizes="(max-width: 767px) 100vw, 1px"
+                onLoad={() => setLoadedSlides(prev => new Set(prev).add(i))}
+              />
+            </div>
+            {/* Desktop hero image (landscape) — shown on md+ */}
+            <div className="absolute inset-0 hidden md:block">
+              <Image
+                src={model.heroImage}
+                alt={model.name}
+                fill
+                className={`object-cover object-center transition-opacity duration-700 ${loadedSlides.has(i) ? 'opacity-100' : 'opacity-0'}`}
+                priority={i === 0}
+                sizes="(min-width: 768px) 100vw, 1px"
+                onLoad={() => setLoadedSlides(prev => new Set(prev).add(i))}
+              />
+            </div>
             {/* Dark gradient overlays */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#1a1d20]/60 via-[#1a1d20]/15 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#1a1d20]/40 via-[#1a1d20]/10 to-transparent" />
@@ -99,30 +113,30 @@ export default function HeroCarousel() {
             {/* Slide content */}
             <div className="absolute inset-0 flex flex-col justify-end px-6 pb-24 md:px-16 md:pb-32 max-w-5xl">
               {model.badge && (
-                <span className="inline-block self-start text-[11px] font-semibold tracking-[0.12em] uppercase text-text-1 border border-border-sub mb-4 px-2.5 py-1 rounded-sm">
+                <span className="inline-block self-start text-[11px] font-semibold tracking-[0.12em] uppercase text-white border border-white/30 mb-4 px-2.5 py-1 rounded-sm">
                   {model.badge}
                 </span>
               )}
-              <h2 className="font-display text-[clamp(36px,6vw,80px)] font-black tracking-[-0.04em] text-text-1 leading-none mb-3">
+              <h2 className="font-display text-[clamp(36px,6vw,80px)] font-black tracking-[-0.04em] text-white leading-none mb-3">
                 {model.name}
               </h2>
-              <p className="text-[15px] md:text-[18px] text-text-1 mb-4 max-w-md leading-relaxed">
+              <p className="text-[15px] md:text-[18px] text-white/90 mb-4 max-w-md leading-relaxed">
                 {model.tagline}
               </p>
-              <p className="text-[13px] text-text-1 mb-7">
+              <p className="text-[13px] text-white/70 mb-7">
                 Mulai dari{' '}
-                <span className="text-text-1 font-semibold">{model.priceFrom}</span>
+                <span className="text-white font-semibold">{model.priceFrom}</span>
               </p>
               <div className="flex gap-3 flex-wrap">
                 <Link
                   href={`/models/${model.slug}`}
-                  className="text-[14px] font-semibold bg-text-1 text-bg px-7 py-3 rounded-sm hover:bg-[#e9ecef] transition-colors duration-200"
+                  className="text-[14px] font-semibold bg-white text-[#212529] px-7 py-3 rounded-sm hover:bg-white/90 transition-colors duration-200"
                 >
                   Lihat Detail
                 </Link>
                 <Link
                   href="/contact"
-                  className="text-[14px] font-semibold border border-border text-text-1 px-7 py-3 rounded-sm hover:border-text-1 transition-colors duration-200"
+                  className="text-[14px] font-semibold border border-white/50 text-white px-7 py-3 rounded-sm hover:border-white transition-colors duration-200"
                 >
                   Test Drive
                 </Link>
@@ -135,7 +149,7 @@ export default function HeroCarousel() {
       {/* Prev arrow */}
       <button
         onClick={() => setSlide(curRef.current - 1)}
-        className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-bg/60 backdrop-blur-sm border border-border-sub text-text-2 hover:text-text-1 hover:bg-bg-card transition-all duration-200"
+        className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 backdrop-blur-sm border border-white/20 text-white/70 hover:text-white hover:bg-black/60 transition-all duration-200"
         aria-label="Slide sebelumnya"
       >
         <ChevronLeft />
@@ -144,7 +158,7 @@ export default function HeroCarousel() {
       {/* Next arrow */}
       <button
         onClick={() => setSlide(curRef.current + 1)}
-        className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-bg/60 backdrop-blur-sm border border-border-sub text-text-2 hover:text-text-1 hover:bg-bg-card transition-all duration-200"
+        className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 backdrop-blur-sm border border-white/20 text-white/70 hover:text-white hover:bg-black/60 transition-all duration-200"
         aria-label="Slide berikutnya"
       >
         <ChevronRight />
@@ -159,7 +173,7 @@ export default function HeroCarousel() {
             aria-selected={i === cur}
             onClick={() => setSlide(i)}
             className={`rounded-full transition-all duration-300 ${
-              i === cur ? 'w-6 h-1.5 bg-text-1' : 'w-1.5 h-1.5 bg-text-3 hover:bg-text-2'
+              i === cur ? 'w-6 h-1.5 bg-white' : 'w-1.5 h-1.5 bg-white/40 hover:bg-white/70'
             }`}
             aria-label={`Slide ${i + 1}`}
           />

@@ -107,7 +107,7 @@ export default function LeadForm({ defaultModel = '' }: { defaultModel?: string 
         required
         value={form.date}
         onChange={handle}
-        className={`${inputCls} [color-scheme:dark]`}
+        className={`${inputCls} [color-scheme:light]`}
         min={new Date().toISOString().split('T')[0]}
       />
 
@@ -120,7 +120,7 @@ export default function LeadForm({ defaultModel = '' }: { defaultModel?: string 
       <button
         type="submit"
         disabled={state === 'loading'}
-        className="w-full text-[15px] font-semibold bg-text-1 text-bg py-3.5 rounded-sm hover:bg-[#e9ecef] transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full text-[15px] font-semibold bg-text-1 text-bg py-3.5 rounded-sm hover:bg-white/90 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {state === 'loading' ? 'Mengirim...' : 'Jadwalkan Test Drive'}
       </button>

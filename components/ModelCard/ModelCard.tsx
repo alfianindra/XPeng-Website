@@ -52,7 +52,7 @@ export default function ModelCard({ model }: { model: CarModel }) {
 
         <Link
           href={`/models/${model.slug}`}
-          className="mt-auto block text-center text-[14px] font-semibold bg-text-1 text-bg px-5 py-2.5 rounded-sm hover:bg-[#e9ecef] transition-colors duration-200"
+          className="mt-auto block text-center text-[14px] font-semibold bg-text-1 text-bg px-5 py-2.5 rounded-sm hover:bg-white/90 transition-colors duration-200"
         >
           Lihat Detail
         </Link>

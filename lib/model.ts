@@ -14,18 +14,20 @@ export type CarColor = {
 }
 
 export type CarModel = {
-  slug:        string
-  name:        string
-  tagline:     string
-  description: string
-  badge:       string
-  priceFrom:   string
-  heroImage:   string
-  cardImage:   string
-  detailImage: string
-  specs:       CarSpec[]
-  gallery:     string[]
-  colors:      CarColor[]
+  slug:            string
+  name:            string
+  tagline:         string
+  description:     string
+  badge:           string
+  priceFrom:       string
+  heroImage:       string        // landscape — shown on md+ (desktop)
+  heroImageMobile: string        // portrait/square — shown below md (phone)
+  cardImage:       string
+  detailImage:     string
+  specs:           CarSpec[]
+  gallery:         string[]
+  colors:          CarColor[]
+  brochureUrl?:    string        // Cloudinary PDF — optional, shown as download link
 }
 
 export const models: CarModel[] = [
@@ -37,10 +39,13 @@ export const models: CarModel[] = [
     badge:       'Terlaris',
     priceFrom:   'Rp 679.000.000',
     heroImage:
-      'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778940842/g6_pro_d2nmtm.png',
+      'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778991671/g6_pro_iicqng.png',
+    heroImageMobile:
+      'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778991295/g6_pro_small_ji7kkp.png',
     cardImage:
-      'https://s-cdn.xpeng.com/commoncms/prod/2025-07-03/cc362365922d4ff182d1d1cb81696298.jpg',
-    detailImage: 'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778940501/g6-white_efq8qu.png',
+      'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778940842/g6_pro_d2nmtm.png',
+    detailImage:  'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778940501/g6-white_efq8qu.png',
+    brochureUrl:  'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778990055/G6_u9xj7j.pdf',
     specs: [
       { label: 'Range',      value: '755',  unit: 'km',   category: 'battery' },
       { label: '0–100 km/h', value: '3.9',  unit: 'det',  category: 'performance' },
@@ -71,9 +76,12 @@ export const models: CarModel[] = [
     badge:       'Baru',
     priceFrom:   'Rp 1.169.000.000',
     heroImage:
-      'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778940853/x9_pro_zkbfhd.png',
-    cardImage:   'https://s-cdn.xpeng.com/commoncms/prod/2026-03-19/2c0de1e035944f1895841b78e978d033.jpg',
-    detailImage: 'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778941655/x9pro-white_ax57yx.png',
+      'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778991771/x9_pro_lxc9xe.png',
+    heroImageMobile:
+      'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778991301/x9_pro_small_w5gavn.png',
+    cardImage:   'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778940853/x9_pro_zkbfhd.png',
+    detailImage:  'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778941655/x9pro-white_ax57yx.png',
+    brochureUrl:  'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778990060/X9_nms0de.pdf',
     specs: [
       { label: 'Range',      value: '702',   unit: 'km',    category: 'battery' },
       { label: '0–100 km/h', value: '5.7',   unit: 'det',   category: 'performance' },
@@ -100,10 +108,13 @@ export const models: CarModel[] = [
     badge:       'Premium',
     priceFrom:   'Rp 1.209.000.000',
     heroImage:
-      'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778940846/x9_pro_plus_jwysmh.png',
+      'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778991945/x9_pro_plus_wt8r3s.png',
+    heroImageMobile:
+      'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778991297/x9_pro_plus_small_ftxwwz.png',
     cardImage:
-      'https://s-cdn.xpeng.com/commoncms/prod/2026-03-19/a519b283b156449baafbf149cbef85be.jpg',
-    detailImage: 'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778941655/x9pro-white_ax57yx.png',
+      'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778940846/x9_pro_plus_jwysmh.png',
+    detailImage:  'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778941655/x9pro-white_ax57yx.png',
+    brochureUrl:  'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778990060/X9_nms0de.pdf',
     specs: [
       { label: 'Range',        value: '702',   unit: 'km',    category: 'battery' },
       { label: '0–100 km/h',   value: '5.7',   unit: 'det',   category: 'performance' },

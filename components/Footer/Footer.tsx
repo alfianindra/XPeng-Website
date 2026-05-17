@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { FOOTER_MODEL_LINKS, FOOTER_INFO_LINKS } from '@/lib/constants'
@@ -53,9 +54,14 @@ export default function Footer() {
 
           {/* Brand column */}
           <div>
-            <div className="font-display text-[20px] font-extrabold text-text-1 mb-3 tracking-[-0.02em]">
-              XPENG
-            </div>
+            <Image
+              src="/logo.png"
+              alt="XPENG"
+              width={400}
+              height={28}
+              className="h-6 w-auto object-contain mb-3"
+              style={{ filter: 'brightness(0)', width: 'auto' }}
+            />
             <p className="text-[14px] text-text-3 leading-relaxed mb-4">
               Dealer resmi XPENG di Indonesia.<br />
               Kendaraan listrik terdepan untuk masa depan yang berkelanjutan.

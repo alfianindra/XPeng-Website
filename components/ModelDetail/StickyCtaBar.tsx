@@ -67,7 +67,7 @@ export function MobileCtaBar({ model }: { model: CarModel }) {
       </div>
       <Link
         href="/contact"
-        className="flex-shrink-0 text-[14px] font-semibold bg-text-1 text-bg px-6 py-2.5 rounded-sm hover:bg-[#e9ecef] transition-colors duration-200 whitespace-nowrap"
+        className="flex-shrink-0 text-[14px] font-semibold bg-text-1 text-bg px-6 py-2.5 rounded-sm hover:bg-white/90 transition-colors duration-200 whitespace-nowrap"
       >
         Test Drive
       </Link>

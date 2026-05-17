@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 
 import dealer from '@/lib/dealer'
-import { Whatsapp as WhatsappIcon } from '@/app/icons'
+import { Whatsapp as WhatsappIcon } from '@/icons'
 
 export default function WhatsAppButton() {
   // ctaVisible: true when the mobile sticky CTA bar is showing (hero scrolled out of view)
@@ -32,7 +32,7 @@ export default function WhatsAppButton() {
       href={`https://wa.me/${phone}?text=${text}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed right-4 md:right-6 z-50 w-14 h-14 rounded-full bg-text-1 text-bg flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:scale-[1.08] hover:bg-[#e9ecef] transition-all duration-300 ease-out cursor-pointer"
+      className="fixed right-4 md:right-6 z-50 w-14 h-14 rounded-full bg-text-1 text-white flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.15)] hover:scale-[1.08] hover:opacity-80 transition-all duration-300 ease-out cursor-pointer"
       style={{ bottom: ctaVisible ? '88px' : '24px' }}
       aria-label="Chat via WhatsApp"
     >
