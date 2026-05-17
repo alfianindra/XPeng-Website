@@ -55,12 +55,13 @@ export async function POST(request: Request) {
           `Telepon   : ${phone}`,
           `Model     : ${model}`,
           `Tanggal   : ${date}`,
+          email ? `Email     : ${email}` : null,
           `Sumber    : ${source ?? 'website'}`,
           '',
           '---',
           'Dikirim dari website XPENG Sunter',
         ]
-          .filter(line => line !== undefined && !(line === '' && !email))
+          .filter((line): line is string => line !== null)
           .join('\n'),
       })
     } catch (err) {

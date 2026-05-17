@@ -9,13 +9,22 @@ type State = 'idle' | 'loading' | 'success' | 'error'
 
 const SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ''
 
-export default function LeadForm({ defaultModel = '' }: { defaultModel?: string }) {
+export default function LeadForm({
+  defaultModel = '',
+  showEmail = false,
+  source = 'home',
+}: {
+  defaultModel?: string
+  showEmail?: boolean
+  source?: string
+}) {
   const [state, setState] = useState<State>('idle')
   const [form, setForm] = useState({
     name: '',
     phone: '',
     model: defaultModel,
     date: '',
+    email: '',
   })
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
   const turnstileRef = useRef<TurnstileInstance>(undefined)
@@ -32,7 +41,7 @@ export default function LeadForm({ defaultModel = '' }: { defaultModel?: string 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...form,
-          source: 'home',
+          source,
           ...(turnstileToken ? { turnstileToken } : {}),
         }),
       })
@@ -127,6 +136,23 @@ export default function LeadForm({ defaultModel = '' }: { defaultModel?: string 
         className={`${inputCls} [color-scheme:light]`}
         min={new Date().toISOString().split('T')[0]}
       />
+
+      {showEmail && (
+        <div className="relative">
+          <input
+            name="email"
+            type="email"
+            placeholder="Email (opsional)"
+            value={form.email}
+            onChange={handle}
+            className={inputCls}
+            autoComplete="email"
+          />
+          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[11px] text-text-3 pointer-events-none">
+            Opsional
+          </span>
+        </div>
+      )}
 
       {/* Turnstile — only renders when site key is configured */}
       {SITE_KEY && (
