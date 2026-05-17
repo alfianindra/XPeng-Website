@@ -26,10 +26,20 @@ export async function generateMetadata({
   return {
     title: model.name,
     description: `${model.tagline} — ${model.description}`,
+    alternates: {
+      canonical: `https://xpengsunter.com/models/${model.slug}`,
+    },
     openGraph: {
-      title: `${model.name} | XPENG Indonesia`,
+      title: `${model.name} | XPENG Sunter Jakarta`,
       description: model.description,
-      images: [{ url: model.heroImage }],
+      url: `https://xpengsunter.com/models/${model.slug}`,
+      images: [{ url: model.heroImage, width: 1200, height: 630, alt: model.name }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${model.name} | XPENG Sunter Jakarta`,
+      description: model.description,
+      images: [model.heroImage],
     },
   }
 }
@@ -43,8 +53,33 @@ export default async function ModelPage({
   const model = models.find(m => m.slug === slug)
   if (!model) notFound()
 
+  const carSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Car',
+    name: model.name,
+    description: model.description,
+    brand: { '@type': 'Brand', name: 'XPENG' },
+    image: model.heroImage,
+    url: `https://xpengsunter.com/models/${model.slug}`,
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'IDR',
+      price: model.priceFrom.replace(/\D/g, ''),
+      availability: 'https://schema.org/InStock',
+      seller: {
+        '@type': 'AutoDealer',
+        name: 'XPENG Sunter Jakarta',
+        url: 'https://xpengsunter.com',
+      },
+    },
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(carSchema) }}
+      />
       {/* ── Split Hero ────────────────────────────────────────────────── */}
       <div id="overview" className="pt-nav">
         <ModelHero model={model} />

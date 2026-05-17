@@ -7,6 +7,19 @@ export const metadata: Metadata = {
   title: 'Test Drive — XPENG Sunter Jakarta',
   description:
     'Jadwalkan test drive XPENG G6 Pro, X9 Pro, atau X9 Pro+ di dealer resmi kami di Sunter, Jakarta Utara.',
+  alternates: {
+    canonical: 'https://xpengsunter.com/contact',
+  },
+  openGraph: {
+    title: 'Jadwalkan Test Drive — XPENG Sunter Jakarta',
+    description: 'Jadwalkan test drive XPENG G6 Pro, X9 Pro, atau X9 Pro+ di dealer resmi kami di Sunter, Jakarta Utara.',
+    url: 'https://xpengsunter.com/contact',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Jadwalkan Test Drive — XPENG Sunter Jakarta',
+    description: 'Test drive XPENG G6 Pro, X9 Pro, X9 Pro+ di Sunter, Jakarta Utara.',
+  },
 }
 
 const SOCIAL_LINKS = [
