@@ -2,10 +2,13 @@
 
 import { useState, useEffect } from 'react'
 
+import { usePathname } from 'next/navigation'
+
 import dealer from '@/lib/dealer'
 import { Whatsapp as WhatsappIcon } from '@/icons'
 
 export default function WhatsAppButton() {
+  const pathname = usePathname()
   // ctaVisible: true when the mobile sticky CTA bar is showing (hero scrolled out of view)
   const [ctaVisible, setCtaVisible] = useState(false)
 
@@ -36,6 +39,9 @@ export default function WhatsAppButton() {
   const text  = encodeURIComponent(
     'Halo, saya tertarik dengan XPENG. Boleh saya minta informasi lebih lanjut?'
   )
+
+  // Hide on /contact — that page has its own WhatsApp button in the dealer card
+  if (pathname === '/contact') return null
 
   return (
     <a

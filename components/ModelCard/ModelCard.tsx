@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import type { CarModel } from '@/lib/model'
 
-export default function ModelCard({ model }: { model: CarModel }) {
+export default function ModelCard({ model, priority = false }: { model: CarModel; priority?: boolean }) {
   const topSpecs = model.specs.slice(0, 3)
 
   return (
@@ -21,6 +21,7 @@ export default function ModelCard({ model }: { model: CarModel }) {
           src={model.cardImage}
           alt={model.name}
           fill
+          priority={priority}
           className="object-cover object-center group-hover:scale-[1.04] transition-transform duration-700"
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
         />

@@ -71,7 +71,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {models.map((model, i) => (
               <FadeIn key={model.slug} delay={i * 80}>
-                <ModelCard model={model} />
+                <ModelCard model={model} priority={i === 0} />
               </FadeIn>
             ))}
           </div>
