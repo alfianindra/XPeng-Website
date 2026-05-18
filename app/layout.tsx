@@ -29,8 +29,11 @@ const interTight = Inter_Tight({
 export const metadata: Metadata = {
   metadataBase: new URL('https://xpengsunter.com'),
   icons: {
-    icon: [{ url: '/favicon.ico', sizes: 'any' }],
-    shortcut: '/favicon.ico',
+    icon: [
+      { url: '/icon.png', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
+    ],
+    shortcut: '/icon.png',
     apple: '/icon.png',
   },
   title: {
