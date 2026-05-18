@@ -113,10 +113,11 @@ export const models: CarModel[] = [
       'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778995755/g6_6_zwmcot.png',
     ],
     colors: [
-      { name: 'Arctic White',  hex: '#f2f2f2', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778940501/g6-white_efq8qu.png'  },
-      { name: 'Graphite Gray', hex: '#4f5154', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778940491/g6-gray_vyc0wr.png'   },
-      { name: 'Midnight Black',hex: '#1a1a1a', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778940489/g6-black_xfaaa7.png'  },
-      { name: 'Silver Frost',  hex: '#b8bcc0', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778940495/g6-silver_exrgv9.png' },
+      { name: 'Arctic White',   hex: '#f2f2f2', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778940501/g6-white_efq8qu.png'  },
+      { name: 'Graphite Gray',  hex: '#4f5154', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778940491/g6-gray_vyc0wr.png'   },
+      { name: 'Midnight Black', hex: '#1a1a1a', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778940489/g6-black_xfaaa7.png'  },
+      { name: 'Silver Frost',   hex: '#b8bcc0', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778940495/g6-silver_exrgv9.png' },
+      { name: 'Stellar Purple', hex: '#5c2d8e', image: 'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1779107644/purple_zqmvo3.png'    },
     ],
   },
   {
