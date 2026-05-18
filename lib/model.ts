@@ -58,7 +58,7 @@ export const models: CarModel[] = [
     cardImage:
       'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778940842/g6_pro_d2nmtm.png',
     detailImage:  'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778940501/g6-white_efq8qu.png',
-    brochureUrl:  'https://res.cloudinary.com/xpeng-sunter/image/upload/v1778990055/G6_u9xj7j.pdf',
+    brochureUrl:  'https://res.cloudinary.com/xpeng-sunter/image/upload/v1779086586/DOC-20260515-WA0001._compressed_zwyalw.pdf',
     specs: [
       { label: 'WLTP Range',    value: '525',  unit: 'km',  category: 'battery' },
       { label: '0–100 km/h',    value: '6,7',  unit: 'det', category: 'performance' },
