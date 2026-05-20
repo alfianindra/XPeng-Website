@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import type { CarModel } from '@/lib/model'
+import dealer from '@/lib/dealer'
 
 export default function ModelHero({ model }: { model: CarModel }) {
   const [activeImage, setActiveImage] = useState(model.detailImage ?? model.heroImage)
@@ -113,7 +114,7 @@ export default function ModelHero({ model }: { model: CarModel }) {
             Jadwalkan Test Drive
           </Link>
           <a
-            href={`https://wa.me/6289668216082?text=${encodeURIComponent(
+            href={`https://wa.me/${dealer.whatsapp}?text=${encodeURIComponent(
               `Halo, saya tertarik dengan ${model.name}. Boleh saya minta informasi?`
             )}`}
             target="_blank"

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import dealer from '@/lib/dealer'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -86,7 +87,7 @@ export async function POST(request: Request) {
             'Tim kami akan menghubungi Anda dalam 24 jam untuk konfirmasi.',
             '',
             'Untuk pertanyaan mendesak, hubungi kami via WhatsApp:',
-            'https://wa.me/6281317266888',
+            `https://wa.me/${dealer.whatsapp}`,
             '',
             'Salam,',
             'Tim XPENG Sunter Jakarta',

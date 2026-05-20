@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { ChevronLeft, ChevronRight } from '@/icons'
-import { models } from '@/lib/model'
+import { carouselModels as models } from '@/lib/model'
 
 const INTERVAL = 5000
 

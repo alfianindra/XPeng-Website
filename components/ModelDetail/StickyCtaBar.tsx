@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 import type { CarModel } from '@/lib/model'
 import LeadForm from '@/components/LeadForm/LeadForm'
+import dealer from '@/lib/dealer'
 
 // ── Desktop sidebar card ────────────────────────────────────────────────────
 export function DesktopCtaSidebar({ model }: { model: CarModel }) {
@@ -20,7 +21,7 @@ export function DesktopCtaSidebar({ model }: { model: CarModel }) {
           <LeadForm defaultModel={model.slug} />
         </div>
         <a
-          href={`https://wa.me/6289668216082?text=${encodeURIComponent(
+          href={`https://wa.me/${dealer.whatsapp}?text=${encodeURIComponent(
             `Halo, saya tertarik dengan ${model.name}. Boleh saya minta informasi?`
           )}`}
           target="_blank"

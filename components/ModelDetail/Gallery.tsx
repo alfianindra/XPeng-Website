@@ -109,7 +109,6 @@ export default function Gallery({ images, modelName }: { images: string[]; model
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 1024px) 100vw, 65vw"
-                  priority={i === 0}
                 />
               </div>
             ))}

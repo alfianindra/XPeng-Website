@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile'
 
 import { models } from '@/lib/model'
@@ -28,6 +28,22 @@ export default function LeadForm({
   })
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
   const turnstileRef = useRef<TurnstileInstance>(undefined)
+  // Lazy-load Turnstile: only mount when form enters viewport.
+  // Cloudflare challenges.cloudflare.com is a heavy third-party script — loading it
+  // eagerly inflates TBT on mobile. rootMargin 200px gives it time to initialize
+  // before the user reaches the submit button.
+  const [turnstileVisible, setTurnstileVisible] = useState(false)
+  const formRef = useRef<HTMLFormElement>(null)
+
+  useEffect(() => {
+    if (!SITE_KEY || !formRef.current) return
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setTurnstileVisible(true); obs.disconnect() } },
+      { rootMargin: '200px' }
+    )
+    obs.observe(formRef.current)
+    return () => obs.disconnect()
+  }, [])
 
   const handle = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -90,7 +106,7 @@ export default function LeadForm({
     'w-full bg-bg-input border border-border-sub rounded-sm px-4 py-3 text-[14px] text-text-1 placeholder:text-text-3 focus:outline-none focus:border-border transition-colors duration-200'
 
   return (
-    <form onSubmit={submit} className="space-y-3" noValidate>
+    <form ref={formRef} onSubmit={submit} className="space-y-3" noValidate>
       <input
         name="name"
         type="text"
@@ -154,8 +170,8 @@ export default function LeadForm({
         </div>
       )}
 
-      {/* Turnstile — only renders when site key is configured */}
-      {SITE_KEY && (
+      {/* Turnstile — lazy-loaded when form enters viewport to avoid eager TBT on mobile */}
+      {SITE_KEY && turnstileVisible && (
         <Turnstile
           ref={turnstileRef}
           siteKey={SITE_KEY}

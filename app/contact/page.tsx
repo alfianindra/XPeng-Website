@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 
 import LeadForm from '@/components/LeadForm/LeadForm'
 import dealer from '@/lib/dealer'
+import { Whatsapp as WhatsappIcon } from '@/icons'
 
 export const metadata: Metadata = {
   title: 'Test Drive — XPENG Sunter Jakarta',
@@ -49,6 +50,20 @@ export default function ContactPage() {
             </p>
 
             <LeadForm showEmail source="contact" />
+
+            {/* WhatsApp CTA — visible inline, below the form */}
+            <div className="mt-8 pt-8 border-t border-border-sub">
+              <p className="text-[13px] text-text-3 text-center mb-4">atau hubungi langsung</p>
+              <a
+                href={`https://wa.me/${dealer.whatsapp}?text=${encodeURIComponent('Halo, saya ingin bertanya tentang XPENG. Boleh minta informasinya?')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2.5 w-full bg-[#25D366] text-white text-[15px] font-semibold rounded-sm py-3.5 hover:bg-[#20bc5a] transition-colors duration-200"
+              >
+                <WhatsappIcon />
+                Chat via WhatsApp
+              </a>
+            </div>
           </div>
 
           {/* ── RIGHT: Dealer info card (sticky on desktop) ── */}

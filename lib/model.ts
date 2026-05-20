@@ -43,6 +43,15 @@ export type CarModel = {
   brochureUrl?:    string        // Cloudinary PDF — optional, shown as download link
 }
 
+// ── Carousel subset ────────────────────────────────────────────────────────────
+// Only the fields the HeroCarousel needs. Importing this instead of `models`
+// keeps the home page client bundle from shipping specs, features, gallery URLs,
+// and color data that are only needed on model detail pages.
+export type CarouselModel = Pick<
+  CarModel,
+  'slug' | 'name' | 'tagline' | 'priceFrom' | 'badge' | 'heroImage' | 'heroImageMobile'
+>
+
 export const models: CarModel[] = [
   {
     slug:        'g6-pro',
@@ -265,3 +274,10 @@ export const models: CarModel[] = [
     ],
   },
 ]
+
+// Derived from models — keeps home page client bundle lean.
+export const carouselModels: CarouselModel[] = models.map(
+  ({ slug, name, tagline, priceFrom, badge, heroImage, heroImageMobile }) => ({
+    slug, name, tagline, priceFrom, badge, heroImage, heroImageMobile,
+  })
+)

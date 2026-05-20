@@ -11,6 +11,8 @@ export const FOOTER_MODEL_LINKS = [
 ] as const
 
 export const FOOTER_INFO_LINKS = [
-  { href: '/contact', label: 'Test Drive' },
-  { href: '/contact', label: 'Hubungi Kami' },
+  { href: '/contact',  label: 'Test Drive'    },
+  { href: '/contact',  label: 'Hubungi Kami'  },
+  { href: '/articles', label: 'Artikel'        },
+  { href: '/gallery',  label: 'Galeri'         },
 ] as const
