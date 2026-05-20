@@ -11,6 +11,62 @@ export type Article = {
 
 export const articles: Article[] = [
   {
+    slug:        'xpeng-x9-meluncur-versi-erev-jarak-tempuh-740-km',
+    title:       'XPENG X9 Meluncur Versi EREV, Jarak Tempuh Bisa Sampai 740 KM',
+    excerpt:     'Varian EREV X9 menggabungkan motor listrik dengan range extender bensin, memberikan jarak tempuh hingga 740 km — menjawab kekhawatiran tentang daya jelajah MPV listrik premium.',
+    date:        '2025-08-12',
+    readingTime: 4,
+    coverImage:  'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778991671/g6_pro_iicqng.png',
+    tags:        ['X9 Pro', 'EREV', 'Teknologi'],
+    body: `XPENG tengah mempersiapkan varian terbaru X9 yang kini hadir dengan opsi EREV (Extended Range Electric Vehicle). Teknologi ini menambahkan mesin bensin sebagai generator pengisi baterai, sehingga kendaraan tetap mengandalkan motor listrik sebagai penggerak utama — namun dengan ketenangan jelajah yang jauh lebih panjang.
+
+Versi EREV mengusung sistem Kunpeng Super Range Extender dengan mesin bensin 1.5-liter turbo bertenaga 110 kW yang berfungsi murni sebagai generator. Jarak tempuh murni listrik diperkirakan mencapai 450 km. Sebagai perbandingan, X9 BEV yang sudah beredar menawarkan jarak tempuh hingga 740 km (CLTC) pada varian Ultra-Long Range.
+
+Secara dimensi, X9 EREV memiliki panjang 5.316 mm — sedikit lebih panjang dari versi BEV yang berukuran 5.293 mm — dengan jarak sumbu roda tetap 3.160 mm. Bobot kosongnya 2.750 kg. Baterai lithium iron phosphate buatan CALB-Tech digunakan untuk menyimpan energi dari generator.
+
+X9 yang sudah hadir di Indonesia tersedia dalam tiga varian: Standard (Rp990 juta), Long Range Pro (Rp1,059 miliar), dan Long Range Pro Plus (Rp1,099 miliar), semua harga on the road Jakarta. Produksi dilakukan secara lokal melalui sistem CKD oleh Erajaya selaku mitra distribusi resmi XPENG di Indonesia.
+
+Kehadiran varian EREV ke depannya akan memperluas pilihan bagi konsumen yang ingin menikmati kenyamanan MPV listrik premium tanpa kekhawatiran soal daya jelajah. Kunjungi showroom XPENG Sunter Jakarta untuk melihat langsung X9 yang sudah tersedia dan jadwalkan test drive Anda.`,
+  },
+  {
+    slug:        'xpeng-x9-facelift-debut-global-hong-kong',
+    title:       'XPENG X9 2025 Debut Global di Hong Kong: 496 Pembaruan Teknis',
+    excerpt:     'Di ajang Xpeng Global Brand Night di Hong Kong, X9 MY 2025 resmi diperkenalkan dengan 496 pembaruan teknis, AI ADAS tanpa biaya langganan, dan pengisian ultra-cepat yang menambah 405 km hanya dalam 10 menit.',
+    date:        '2025-04-17',
+    readingTime: 5,
+    coverImage:  'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778991671/g6_pro_iicqng.png',
+    tags:        ['X9 Pro', 'Teknologi', 'ADAS'],
+    body: `Dalam perhelatan Xpeng Global Brand Night di Kai Tak Cruise Terminal, Hong Kong, XPENG memperkenalkan versi terbaru MPV premium mereka: X9 MY 2025. Kendaraan listrik tujuh penumpang ini membawa 496 pembaruan teknis dibanding generasi sebelumnya, dengan 35 persen komponen baru.
+
+Salah satu perubahan paling signifikan adalah penghapusan LiDAR dan penggantiannya dengan sistem penglihatan murni berbasis AI. X9 2025 kini dibekali teknologi Turing AI ADAS secara standar — tanpa biaya langganan tambahan — yang memungkinkan kendaraan berpindah dari satu tempat parkir ke tempat lain secara otomatis melalui fitur Navigation Guided Pilot (NGP).
+
+Sistem pengisian daya mengalami lompatan besar. Dengan arsitektur 800V berbasis silikon karbida dan baterai 5C Superfast Charging AI, X9 2025 bisa menambah jarak tempuh 405 km hanya dalam 10 menit pengisian. Pengisian dari 10% ke 80% hanya membutuhkan 12 menit — setara dengan waktu minum kopi di rest area.
+
+Interior tetap menjadi keunggulan utama. Tersedia layar belakang 21,4 inci, kulkas 10,8 liter dengan fungsi penghangat, sistem audio 7.1.6 XOpera 2.180W dengan 23 speaker, dan kursi zero-gravity dengan suspensi udara adaptif yang dapat disesuaikan hingga 90 mm. Radius putar hanya 5,4 meter berkat sistem kemudi roda belakang aktif — lebih lincah dari banyak SUV kompak.
+
+Tersedia empat varian: Long Range (650 km CLTC), Extended Long Range (740 km), AWD Performance (702 km), dan Starship Edition (702 km). X9 yang tersedia di showroom XPENG Sunter Jakarta sudah mengusung teknologi generasi terkini ini. Hubungi kami untuk informasi ketersediaan dan jadwalkan test drive Anda hari ini.`,
+  },
+  {
+    slug:        'mengenal-xpeng-x9-mpv-listrik-premium-indonesia',
+    title:       'Mengenal XPENG X9: MPV Listrik Premium dengan Kabin Sekelas Business Class',
+    excerpt:     'Dengan kapasitas bagasi 2.554 liter, layar belakang 21,4 inci, dan teknologi XNGP ADAS lengkap, X9 meredefinisi standar MPV premium di Indonesia — dan kini bisa Anda uji langsung di Sunter.',
+    date:        '2025-03-05',
+    readingTime: 5,
+    coverImage:  'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778991671/g6_pro_iicqng.png',
+    tags:        ['X9 Pro', 'MPV', 'Panduan'],
+    body: `XPENG X9 hadir di Indonesia sebagai MPV listrik premium yang diproduksi lokal melalui sistem CKD oleh Erajaya. Dengan panjang 5.293 mm dan jarak sumbu roda 3.160 mm, X9 menawarkan ruang kabin yang sangat lapang — kapasitas bagasinya mencapai 2.554 liter saat semua jok baris belakang dilipat, cukup untuk 29 koper berukuran 20 inci.
+
+Desain eksteriornya terinspirasi dari pesawat luar angkasa dengan koefisien hambatan angin hanya 0,227 Cd. Lampu depan LED dengan desain X-Robot yang khas, handle pintu elektrik tersembunyi, dan tiga pilihan warna eksklusif — Silver Frost, Midnight Black, dan Arctic White — memperkuat kesan futuristis.
+
+Interior X9 dibalut kulit Nappa premium dengan sentuhan dekorasi kayu asli. Jok baris kedua menggunakan konfigurasi captain seat dengan fitur Zero Gravity Reclining dan sistem pijatan enam titik. Layar belakang 21,4 inci dipadu sistem audio XOpera 23-speaker menghadirkan pengalaman hiburan setara bioskop pribadi. Di depan, layar sentuh 17,3 inci dan panel instrumen 10,25 inci ditenagai chipset Qualcomm Snapdragon SA8295P.
+
+Sistem keselamatan XNGP Full-scenario ADAS mencakup lebih dari sepuluh fitur aktif: AEB, FCW, BSD, LDW, LKA, RCTA, DMS, hingga AI Valet Driver dan Highway/City NGP. Struktur bodinya menggunakan aluminium die-casting terintegrasi dengan kekakuan torsional 46.000 Nm/deg — satu-satunya MPV di dunia yang menggunakan konstruksi ini di bagian depan dan belakang sekaligus.
+
+Tersedia dalam dua konfigurasi penggerak: motor tunggal 235 kW (315 hp) dengan baterai 84,5 kWh (jarak tempuh 610 km) atau 101,5 kWh (702 km), serta versi AWD dual-motor dengan tenaga gabungan 496 hp dan akselerasi 0–100 km/jam dalam 5,7 detik. Pengisian cepat DC hingga 330 kW memungkinkan penambahan jarak 330 km hanya dalam 10 menit.
+
+X9 tersedia di showroom XPENG Sunter Jakarta dalam tiga varian harga mulai Rp990 juta. Kunjungi kami atau hubungi via WhatsApp untuk jadwalkan test drive dan rasakan sendiri pengalaman berkendara kelas dunia ini.`,
+  },
+  {
     slug:        'kenapa-xpeng-g6-pro-cocok-untuk-jakarta',
     title:       'Kenapa XPENG G6 Pro Cocok untuk Kehidupan di Jakarta?',
     excerpt:     'Macet, parkir sempit, biaya BBM yang terus naik — G6 Pro dirancang untuk menjawab semua tantangan berkendara di ibu kota.',
