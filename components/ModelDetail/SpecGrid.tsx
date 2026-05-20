@@ -25,11 +25,16 @@ export default function SpecGrid({ specs }: { specs: CarSpec[] }) {
   return (
     <div>
       {/* Category filter */}
-      <div className="flex flex-wrap gap-2 mb-6">
+      <div
+        role="group"
+        aria-label="Filter spesifikasi"
+        className="flex flex-wrap gap-2 mb-6"
+      >
         {available.map(cat => (
           <button
             key={cat.id}
             onClick={() => setActive(cat.id)}
+            aria-pressed={active === cat.id}
             className={`text-[13px] font-medium px-4 py-1.5 rounded-sm border transition-colors duration-200 ${
               active === cat.id
                 ? 'bg-bg-card border-border text-text-1'

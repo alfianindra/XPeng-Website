@@ -106,56 +106,103 @@ export default function LeadForm({
     'w-full bg-bg-input border border-border-sub rounded-sm px-4 py-3 text-[14px] text-text-1 placeholder:text-text-3 focus:outline-none focus:border-border transition-colors duration-200'
 
   return (
-    <form ref={formRef} onSubmit={submit} className="space-y-3" noValidate>
-      <input
-        name="name"
-        type="text"
-        placeholder="Nama Lengkap"
-        required
-        value={form.name}
-        onChange={handle}
-        className={inputCls}
-        autoComplete="name"
-      />
-      <input
-        name="phone"
-        type="tel"
-        placeholder="Nomor WhatsApp (e.g. 08xx)"
-        required
-        value={form.phone}
-        onChange={handle}
-        className={inputCls}
-        autoComplete="tel"
-      />
-      <select
-        name="model"
-        required
-        value={form.model}
-        onChange={handle}
-        className={`${inputCls} ${!form.model ? 'text-text-3' : 'text-text-1'}`}
-      >
-        <option value="" disabled>
+    <form
+      ref={formRef}
+      onSubmit={submit}
+      className="space-y-3"
+      noValidate
+      aria-label="Formulir jadwal test drive"
+      aria-busy={state === 'loading'}
+    >
+      {/* Nama */}
+      <div>
+        <label htmlFor="lead-name" className="sr-only">
+          Nama Lengkap
+        </label>
+        <input
+          id="lead-name"
+          name="name"
+          type="text"
+          placeholder="Nama Lengkap"
+          required
+          aria-required="true"
+          value={form.name}
+          onChange={handle}
+          className={inputCls}
+          autoComplete="name"
+        />
+      </div>
+
+      {/* Nomor WhatsApp */}
+      <div>
+        <label htmlFor="lead-phone" className="sr-only">
+          Nomor WhatsApp
+        </label>
+        <input
+          id="lead-phone"
+          name="phone"
+          type="tel"
+          placeholder="Nomor WhatsApp (e.g. 08xx)"
+          required
+          aria-required="true"
+          value={form.phone}
+          onChange={handle}
+          className={inputCls}
+          autoComplete="tel"
+        />
+      </div>
+
+      {/* Model */}
+      <div>
+        <label htmlFor="lead-model" className="sr-only">
           Model yang Diminati
-        </option>
-        {models.map(m => (
-          <option key={m.slug} value={m.slug}>
-            {m.name}
+        </label>
+        <select
+          id="lead-model"
+          name="model"
+          required
+          aria-required="true"
+          value={form.model}
+          onChange={handle}
+          className={`${inputCls} ${!form.model ? 'text-text-3' : 'text-text-1'}`}
+        >
+          <option value="" disabled>
+            Model yang Diminati
           </option>
-        ))}
-      </select>
-      <input
-        name="date"
-        type="date"
-        required
-        value={form.date}
-        onChange={handle}
-        className={`${inputCls} [color-scheme:light]`}
-        min={new Date().toISOString().split('T')[0]}
-      />
+          {models.map(m => (
+            <option key={m.slug} value={m.slug}>
+              {m.name}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Tanggal test drive */}
+      <div>
+        <label htmlFor="lead-date" className="sr-only">
+          Tanggal Test Drive
+        </label>
+        <input
+          id="lead-date"
+          name="date"
+          type="date"
+          required
+          aria-required="true"
+          aria-label="Tanggal Test Drive"
+          value={form.date}
+          onChange={handle}
+          className={`${inputCls} [color-scheme:light]`}
+          min={new Date().toISOString().split('T')[0]}
+        />
+      </div>
 
       {showEmail && (
         <div className="relative">
+          <label htmlFor="lead-email" className="sr-only">
+            Email (opsional)
+          </label>
           <input
+            id="lead-email"
             name="email"
             type="email"
             placeholder="Email (opsional)"
@@ -164,7 +211,7 @@ export default function LeadForm({
             className={inputCls}
             autoComplete="email"
           />
-          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[11px] text-text-3 pointer-events-none">
+          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[11px] text-text-3 pointer-events-none" aria-hidden="true">
             Opsional
           </span>
         </div>
@@ -182,7 +229,7 @@ export default function LeadForm({
       )}
 
       {state === 'error' && (
-        <p className="text-[13px] text-red-500">
+        <p role="alert" className="text-[13px] text-red-500">
           Terjadi kesalahan. Silakan coba lagi atau hubungi kami via WhatsApp.
         </p>
       )}
@@ -191,6 +238,7 @@ export default function LeadForm({
         type="submit"
         disabled={state === 'loading' || (!!SITE_KEY && !turnstileToken)}
         className="w-full text-[15px] font-semibold bg-text-1 text-bg py-3.5 rounded-sm hover:opacity-90 transition-opacity duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+        aria-disabled={state === 'loading' || (!!SITE_KEY && !turnstileToken)}
       >
         {state === 'loading' ? 'Mengirim...' : 'Jadwalkan Test Drive'}
       </button>

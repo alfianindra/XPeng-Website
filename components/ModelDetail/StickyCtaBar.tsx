@@ -58,8 +58,9 @@ export function MobileCtaBar({ model }: { model: CarModel }) {
 
   return (
     <div
+      aria-hidden={!visible}
       className={`lg:hidden fixed bottom-0 inset-x-0 z-40 bg-bg/95 backdrop-blur-md border-t border-border-sub px-4 py-3 flex items-center gap-3 transition-transform duration-300 ${
-        visible ? 'translate-y-0' : 'translate-y-full'
+        visible ? 'translate-y-0' : 'translate-y-full pointer-events-none'
       }`}
     >
       <div className="flex-1 min-w-0">

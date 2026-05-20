@@ -44,12 +44,16 @@ export default function TabNav() {
   }
 
   return (
-    <div className="sticky top-nav z-40 bg-bg/95 backdrop-blur-md border-b border-border-sub">
+    <nav
+      className="sticky top-nav z-40 bg-bg/95 backdrop-blur-md border-b border-border-sub"
+      aria-label="Navigasi bagian halaman"
+    >
       <div className="max-w-7xl mx-auto px-2 md:px-6 flex gap-0 overflow-x-auto scrollbar-none">
         {TABS.map(tab => (
           <button
             key={tab.id}
             onClick={() => scrollTo(tab.id)}
+            aria-current={active === tab.id ? 'true' : undefined}
             className={`flex-shrink-0 whitespace-nowrap text-[12px] md:text-[13px] font-medium px-3 md:px-4 py-3.5 border-b-2 transition-colors duration-200 ${
               active === tab.id
                 ? 'border-text-1 text-text-1'
@@ -61,6 +65,6 @@ export default function TabNav() {
           </button>
         ))}
       </div>
-    </div>
+    </nav>
   )
 }

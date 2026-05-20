@@ -63,7 +63,8 @@ export default function HeroCarousel() {
       className="relative h-svh min-h-[520px] overflow-hidden bg-bg-deep"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
-      aria-label="Hero carousel"
+      aria-label="Highlight model XPENG"
+      aria-roledescription="carousel"
     >
       {/* Slide track */}
       <div
@@ -175,7 +176,7 @@ export default function HeroCarousel() {
             className={`rounded-full transition-all duration-300 ${
               i === cur ? 'w-6 h-1.5 bg-white' : 'w-1.5 h-1.5 bg-white/40 hover:bg-white/70'
             }`}
-            aria-label={`Slide ${i + 1}`}
+            aria-label={`${models[i].name} — slide ${i + 1} dari ${models.length}`}
           />
         ))}
       </div>

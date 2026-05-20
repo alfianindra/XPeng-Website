@@ -53,11 +53,16 @@ export default function GalleryClient() {
   return (
     <>
       {/* Model filter tabs */}
-      <div className="flex gap-2 flex-wrap mb-8">
+      <div
+        role="group"
+        aria-label="Filter model kendaraan"
+        className="flex gap-2 flex-wrap mb-8"
+      >
         {tabs.map(tab => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
+            aria-pressed={activeTab === tab.id}
             className={`text-[13px] font-semibold px-4 py-2 rounded-sm transition-colors duration-200 ${
               activeTab === tab.id
                 ? 'bg-text-1 text-bg'
