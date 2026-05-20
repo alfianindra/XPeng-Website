@@ -1,7 +1,9 @@
 export const NAV_LINKS = [
-  { href: '/models/g6-pro',      label: 'G6 Pro'  },
-  { href: '/models/x9-pro',      label: 'X9 Pro'  },
-  { href: '/models/x9-pro-plus', label: 'X9 Pro+' },
+  { href: '/models/g6-pro',      label: 'G6 Pro'   },
+  { href: '/models/x9-pro',      label: 'X9 Pro'   },
+  { href: '/models/x9-pro-plus', label: 'X9 Pro+'  },
+  { href: '/gallery',            label: 'Galeri'   },
+  { href: '/articles',           label: 'Artikel'  },
 ] as const
 
 export const FOOTER_MODEL_LINKS = [
