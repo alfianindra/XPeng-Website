@@ -26,7 +26,9 @@ export default function VideoHero() {
   useEffect(() => {
     const isMobile = window.innerWidth < 768
     const idx = Math.floor(Math.random() * 2)
-    setVideoSrc(isMobile ? MOBILE_VIDEOS[idx] : DESKTOP_VIDEOS[idx])
+    const src = isMobile ? MOBILE_VIDEOS[idx] : DESKTOP_VIDEOS[idx]
+    const id = setTimeout(() => setVideoSrc(src), 0)
+    return () => clearTimeout(id)
   }, [])
 
   // Programmatic play() as a fallback for browsers that ignore the autoPlay attr

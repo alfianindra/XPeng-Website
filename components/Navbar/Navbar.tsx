@@ -22,17 +22,20 @@ export default function Navbar() {
 
   useEffect(() => {
     if (pathname !== '/') {
-      setTransparent(false)
-      return
+      const id = setTimeout(() => setTransparent(false), 0)
+      return () => clearTimeout(id)
     }
 
     const update = () => {
       setTransparent(window.scrollY < window.innerHeight * HERO_VH_MULTIPLIER)
     }
 
-    update()
+    const id = setTimeout(update, 0)
     window.addEventListener('scroll', update, { passive: true })
-    return () => window.removeEventListener('scroll', update)
+    return () => {
+      clearTimeout(id)
+      window.removeEventListener('scroll', update)
+    }
   }, [pathname])
 
   return (
