@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 import { models } from '@/lib/model'
-import HeroCarousel from '@/components/HeroCarousel/HeroCarousel'
+import VideoHero from '@/components/VideoHero/VideoHero'
 import ModelCard from '@/components/ModelCard/ModelCard'
 import LeadForm from '@/components/LeadForm/LeadForm'
 import FadeIn from '@/components/FadeIn/FadeIn'
@@ -50,11 +50,11 @@ const TRUST_ITEMS = [
 export default function HomePage() {
   return (
     <main>
-      {/* ── Hero Carousel ──────────────────────────────── */}
-      <HeroCarousel />
+      {/* ── Video Hero (scroll-driven) ─────────────────── */}
+      <VideoHero />
 
       {/* ── Model Cards ───────────────────────────────── */}
-      <section className="pt-20 pb-16 px-6">
+      <section id="lineup" className="pt-20 pb-16 px-6 scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <FadeIn className="text-center mb-12">
             <p className="text-[12px] font-semibold tracking-[0.12em] uppercase text-text-3 mb-2">

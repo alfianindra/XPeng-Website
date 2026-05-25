@@ -16,7 +16,7 @@ export const articles: Article[] = [
     excerpt:     'Varian EREV X9 menggabungkan motor listrik dengan range extender bensin, memberikan jarak tempuh hingga 740 km — menjawab kekhawatiran tentang daya jelajah MPV listrik premium.',
     date:        '2025-08-12',
     readingTime: 4,
-    coverImage:  'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778991671/g6_pro_iicqng.png',
+    coverImage:  'https://res.cloudinary.com/cavemine/image/upload/v1778991671/g6_pro_iicqng.png',
     tags:        ['X9 Pro', 'EREV', 'Teknologi'],
     body: `XPENG tengah mempersiapkan varian terbaru X9 yang kini hadir dengan opsi EREV (Extended Range Electric Vehicle). Teknologi ini menambahkan mesin bensin sebagai generator pengisi baterai, sehingga kendaraan tetap mengandalkan motor listrik sebagai penggerak utama — namun dengan ketenangan jelajah yang jauh lebih panjang.
 
@@ -34,7 +34,7 @@ Kehadiran varian EREV ke depannya akan memperluas pilihan bagi konsumen yang ing
     excerpt:     'Di ajang Xpeng Global Brand Night di Hong Kong, X9 MY 2025 resmi diperkenalkan dengan 496 pembaruan teknis, AI ADAS tanpa biaya langganan, dan pengisian ultra-cepat yang menambah 405 km hanya dalam 10 menit.',
     date:        '2025-04-17',
     readingTime: 5,
-    coverImage:  'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778991671/g6_pro_iicqng.png',
+    coverImage:  'https://res.cloudinary.com/cavemine/image/upload/v1778991671/g6_pro_iicqng.png',
     tags:        ['X9 Pro', 'Teknologi', 'ADAS'],
     body: `Dalam perhelatan Xpeng Global Brand Night di Kai Tak Cruise Terminal, Hong Kong, XPENG memperkenalkan versi terbaru MPV premium mereka: X9 MY 2025. Kendaraan listrik tujuh penumpang ini membawa 496 pembaruan teknis dibanding generasi sebelumnya, dengan 35 persen komponen baru.
 
@@ -52,7 +52,7 @@ Tersedia empat varian: Long Range (650 km CLTC), Extended Long Range (740 km), A
     excerpt:     'Dengan kapasitas bagasi 2.554 liter, layar belakang 21,4 inci, dan teknologi XNGP ADAS lengkap, X9 meredefinisi standar MPV premium di Indonesia — dan kini bisa Anda uji langsung di Sunter.',
     date:        '2025-03-05',
     readingTime: 5,
-    coverImage:  'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778991671/g6_pro_iicqng.png',
+    coverImage:  'https://res.cloudinary.com/cavemine/image/upload/v1778991671/g6_pro_iicqng.png',
     tags:        ['X9 Pro', 'MPV', 'Panduan'],
     body: `XPENG X9 hadir di Indonesia sebagai MPV listrik premium yang diproduksi lokal melalui sistem CKD oleh Erajaya. Dengan panjang 5.293 mm dan jarak sumbu roda 3.160 mm, X9 menawarkan ruang kabin yang sangat lapang — kapasitas bagasinya mencapai 2.554 liter saat semua jok baris belakang dilipat, cukup untuk 29 koper berukuran 20 inci.
 
@@ -72,7 +72,7 @@ X9 tersedia di showroom XPENG Sunter Jakarta dalam tiga varian harga mulai Rp990
     excerpt:     'Macet, parkir sempit, biaya BBM yang terus naik — G6 Pro dirancang untuk menjawab semua tantangan berkendara di ibu kota.',
     date:        '2026-05-15',
     readingTime: 4,
-    coverImage:  'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778991671/g6_pro_iicqng.png',
+    coverImage:  'https://res.cloudinary.com/cavemine/image/upload/v1778991671/g6_pro_iicqng.png',
     tags:        ['G6 Pro', 'Jakarta', 'Mobil Listrik'],
     body: `Jakarta adalah salah satu kota dengan kemacetan terparah di dunia. Rata-rata pengendara menghabiskan lebih dari 60 jam per tahun terjebak di kemacetan. Dalam kondisi ini, mobil listrik bukan sekadar pilihan ramah lingkungan — ia adalah pilihan finansial yang cerdas.
 
@@ -90,7 +90,7 @@ Untuk Anda yang tinggal di Jakarta Utara, Sunter, atau sekitarnya — dealer res
     excerpt:     'Tujuh kursi, kabin mewah, dan teknologi XNGP — X9 Pro menawarkan pengalaman berkendara keluarga yang belum pernah ada sebelumnya.',
     date:        '2026-05-10',
     readingTime: 5,
-    coverImage:  'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778991671/g6_pro_iicqng.png',
+    coverImage:  'https://res.cloudinary.com/cavemine/image/upload/v1778991671/g6_pro_iicqng.png',
     tags:        ['X9 Pro', 'MPV', 'Keluarga'],
     body: `Pasar MPV premium di Indonesia selama ini didominasi oleh nama-nama besar yang sudah dikenal puluhan tahun. XPENG X9 Pro hadir dengan proposisi yang berbeda: kemewahan setara kelas bisnis, kapasitas tujuh penumpang, dan nol emisi.
 

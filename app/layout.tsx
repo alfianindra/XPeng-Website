@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     siteName: 'XPENG Sunter Jakarta',
     images: [
       {
-        url: 'https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778991671/g6_pro_iicqng.png',
+        url: 'https://res.cloudinary.com/cavemine/image/upload/v1778991671/g6_pro_iicqng.png',
         width: 1200,
         height: 630,
         alt: 'XPENG G6 Pro — Dealer Resmi Jakarta',
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'XPENG Indonesia — Dealer Resmi Sunter Jakarta',
     description: 'Dealer resmi XPENG di Sunter, Jakarta Utara. Test drive G6 Pro, X9 Pro, X9 Pro+.',
-    images: ['https://res.cloudinary.com/xpeng-sunter/image/upload/f_auto,q_auto/v1778991671/g6_pro_iicqng.png'],
+    images: ['https://res.cloudinary.com/cavemine/image/upload/v1778991671/g6_pro_iicqng.png'],
   },
   alternates: {
     canonical: 'https://xpengsunter.com',

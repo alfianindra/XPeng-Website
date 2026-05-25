@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
-        pathname: '/xpeng-sunter/**', // replace with your Cloudinary cloud name
+        pathname: '/cavemine/**',
       },
     ],
   },
