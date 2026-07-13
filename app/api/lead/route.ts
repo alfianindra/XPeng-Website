@@ -2,7 +2,15 @@ import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import dealer from '@/lib/dealer'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Lazy singleton — the Resend constructor throws immediately on an undefined
+// key, which would crash Next.js's build-time page-data collection for this
+// route if instantiated at module scope on an environment without the key set.
+let resend: Resend | null = null
+function getResend(): Resend | null {
+  if (!process.env.RESEND_API_KEY) return null
+  if (!resend) resend = new Resend(process.env.RESEND_API_KEY)
+  return resend
+}
 
 // Verify Cloudflare Turnstile token server-side
 async function verifyTurnstile(token: string): Promise<boolean> {
@@ -44,8 +52,16 @@ export async function POST(request: Request) {
     }
 
     // 4. Send dealer notification
+    const resendClient = getResend()
+    if (!resendClient) {
+      // No RESEND_API_KEY configured on this environment — log and skip
+      // rather than crash. Never 500 a lead.
+      console.error('[lead] RESEND_API_KEY not configured — email not sent:', { name, phone, model, date })
+      return NextResponse.json({ ok: true }, { status: 200 })
+    }
+
     try {
-      await resend.emails.send({
+      await resendClient.emails.send({
         from: process.env.RESEND_FROM!,
         to: process.env.DEALER_EMAIL!,
         subject: `[Test Drive] ${name} — ${model}`,
@@ -73,7 +89,7 @@ export async function POST(request: Request) {
 
     // 5. Customer auto-reply — only if email provided, non-blocking
     if (email) {
-      resend.emails
+      resendClient.emails
         .send({
           from: process.env.RESEND_FROM!,
           to: email,
