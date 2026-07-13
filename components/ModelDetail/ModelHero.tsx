@@ -8,15 +8,31 @@ import type { CarModel } from '@/lib/model'
 import dealer from '@/lib/dealer'
 
 export default function ModelHero({ model }: { model: CarModel }) {
+  const [activeVariantId, setActiveVariantId] = useState<string | null>(null)
   const [activeImage, setActiveImage] = useState(model.detailImage ?? model.heroImage)
   const [selected, setSelected] = useState(0)
   const [imgLoaded, setImgLoaded] = useState(false)
 
+  const activeVariant = model.variants?.find(v => v.id === activeVariantId) ?? null
+  const badge     = activeVariant?.badge ?? model.badge
+  const priceFrom = activeVariant?.priceFrom ?? model.priceFrom
+  const specs     = activeVariant?.specs ?? model.specs
+  const colors    = activeVariant?.colors ?? model.colors
+  const ctaLabel  = activeVariant ? `${model.name} ${activeVariant.label}` : model.name
+
   const handleColor = (i: number) => {
     setSelected(i)
-    const img = model.colors[i].image
+    const img = colors[i].image
     setImgLoaded(false)
     setActiveImage(img || model.heroImage)
+  }
+
+  const handleVariant = (id: string | null) => {
+    setActiveVariantId(id)
+    setSelected(0)
+    const nextColors = model.variants?.find(v => v.id === id)?.colors ?? model.colors
+    setImgLoaded(false)
+    setActiveImage(nextColors[0]?.image || model.heroImage)
   }
 
   return (
@@ -43,25 +59,58 @@ export default function ModelHero({ model }: { model: CarModel }) {
 
       {/* Right — stats panel */}
       <div className="flex flex-col justify-center px-6 py-10 lg:px-10 lg:py-16 bg-bg-card">
-        {model.badge && (
+        {badge && (
           <span className="inline-block self-start text-[11px] font-semibold tracking-[0.12em] uppercase text-text-3 border border-border-sub mb-4 px-2.5 py-1 rounded-sm">
-            {model.badge}
+            {badge}
           </span>
         )}
         <h1 className="font-display text-[clamp(28px,4vw,52px)] font-black tracking-[-0.04em] text-text-1 leading-none mb-3">
           {model.name}
         </h1>
         <p className="text-[15px] text-text-2 leading-relaxed mb-6">{model.tagline}</p>
+
+        {/* Trim toggle — only rendered when the model has variants (e.g. Standard vs AWD) */}
+        {model.variants && model.variants.length > 0 && (
+          <div className="mb-6">
+            <p className="text-[12px] font-semibold tracking-[0.08em] uppercase text-text-3 mb-3">
+              Varian
+            </p>
+            <div className="inline-flex bg-bg-deep border border-border-sub rounded-full p-1">
+              <button
+                onClick={() => handleVariant(null)}
+                aria-pressed={activeVariantId === null}
+                className={`text-[13px] font-bold px-5 py-2 rounded-full transition-colors duration-200 ${
+                  activeVariantId === null ? 'bg-text-1 text-bg' : 'text-text-3'
+                }`}
+              >
+                Standard
+              </button>
+              {model.variants.map(v => (
+                <button
+                  key={v.id}
+                  onClick={() => handleVariant(v.id)}
+                  aria-pressed={activeVariantId === v.id}
+                  className={`text-[13px] font-bold px-5 py-2 rounded-full transition-colors duration-200 ${
+                    activeVariantId === v.id ? 'bg-text-1 text-bg' : 'text-text-3'
+                  }`}
+                >
+                  {v.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
         <p className="text-[13px] text-text-3 mb-6">
           Mulai dari{' '}
           <span className="font-display text-[22px] font-bold text-text-1 ml-1">
-            {model.priceFrom}
+            {priceFrom}
           </span>
         </p>
 
         {/* Top 3 specs */}
         <div className="grid grid-cols-3 mb-8 pb-8 border-b border-border-sub divide-x divide-border">
-          {model.specs.slice(0, 3).map(spec => (
+          {specs.slice(0, 3).map(spec => (
             <div key={spec.label} className="text-center px-3">
               <div className="font-display text-[22px] font-bold text-text-1 leading-none">
                 {spec.value}
@@ -73,16 +122,16 @@ export default function ModelHero({ model }: { model: CarModel }) {
         </div>
 
         {/* Color picker */}
-        {model.colors.length > 0 && (
+        {colors.length > 0 && (
           <div className="mb-8">
             <p className="text-[12px] font-semibold tracking-[0.08em] uppercase text-text-3 mb-3">
               Warna —{' '}
               <span className="text-text-2 normal-case font-normal tracking-normal">
-                {model.colors[selected].name}
+                {colors[selected].name}
               </span>
             </p>
             <div className="flex gap-2.5 flex-wrap">
-              {model.colors.map((color, i) => (
+              {colors.map((color, i) => (
                 <button
                   key={color.name}
                   onClick={() => handleColor(i)}
@@ -115,7 +164,7 @@ export default function ModelHero({ model }: { model: CarModel }) {
           </Link>
           <a
             href={`https://wa.me/${dealer.whatsapp}?text=${encodeURIComponent(
-              `Halo, saya tertarik dengan ${model.name}. Boleh saya minta informasi?`
+              `Halo, saya tertarik dengan ${ctaLabel}. Boleh saya minta informasi?`
             )}`}
             target="_blank"
             rel="noopener noreferrer"

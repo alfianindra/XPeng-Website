@@ -8,9 +8,8 @@ import { usePathname } from 'next/navigation'
 
 import { NAV_LINKS } from '@/lib/constants'
 
-// VideoHero is SCROLL_MULTIPLIER (3) × 100vh tall.
-// The sticky panel stays visible while scrollY < (3 - 1) × innerHeight.
-const HERO_VH_MULTIPLIER = 2
+// VideoHero is a single 100vh section — navbar goes opaque once it's scrolled past.
+const HERO_VH_MULTIPLIER = 1
 
 export default function Navbar() {
   const pathname = usePathname()

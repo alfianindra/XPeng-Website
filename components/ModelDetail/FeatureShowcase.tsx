@@ -108,6 +108,25 @@ function Icon({ name }: { name: FeatureIcon }) {
           <line x1="70" y1="57" x2="70" y2="78" />
         </svg>
       )
+    case 'vents':
+      return (
+        <svg {...props}>
+          <rect x="15" y="25" width="90" height="70" rx="12" />
+          <line x1="35" y1="25" x2="35" y2="95" />
+          <line x1="52" y1="25" x2="52" y2="95" />
+          <line x1="69" y1="25" x2="69" y2="95" />
+          <line x1="86" y1="25" x2="86" y2="95" />
+          <path d="M15 60 H105" strokeWidth={0.8} strokeDasharray="3 3" />
+        </svg>
+      )
+    case 'door':
+      return (
+        <svg {...props}>
+          <path d="M25 20 H75 Q90 20 90 35 V100 H40 Q25 100 25 85 Z" />
+          <line x1="55" y1="55" x2="70" y2="55" strokeWidth={2} />
+          <path d="M95 30 Q108 60 95 90" strokeDasharray="4 4" strokeWidth={0.8} />
+        </svg>
+      )
     default:
       return null
   }
