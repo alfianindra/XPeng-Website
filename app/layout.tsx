@@ -129,6 +129,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
+      {/* Google AdSense — site verification + ad serving */}
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532024392635402"
+        crossOrigin="anonymous"
+      />
     </head>
     <body>
       <Navbar />
