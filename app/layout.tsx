@@ -135,6 +135,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532024392635402"
         crossOrigin="anonymous"
       />
+      {/* Google tag (gtag.js) — conversion tracking */}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18185183614" />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-18185183614');`,
+        }}
+      />
     </head>
     <body>
       <Navbar />
