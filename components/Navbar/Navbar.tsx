@@ -96,10 +96,10 @@ export default function Navbar() {
             className={`hidden md:inline-block text-[13px] font-semibold px-5 py-2 rounded-sm transition-colors duration-200 whitespace-nowrap ${
               transparent
                 ? 'border border-white/60 text-white hover:bg-white/15'
-                : 'bg-text-1 text-bg hover:bg-white/90'
+                : 'bg-emerald-600 text-white hover:bg-emerald-700'
             }`}
           >
-            Test Drive
+            Contact Us
           </Link>
           <button
             className={`md:hidden flex flex-col gap-1.25 w-10 h-10 items-center justify-center rounded-sm${open ? ' nav-burger-open' : ''}`}
@@ -138,10 +138,10 @@ export default function Navbar() {
         ))}
         <Link
           href="/contact"
-          className="block mt-3 text-center py-3.5 rounded-md bg-text-1 text-bg font-semibold text-[15px] hover:bg-white/90 transition-colors duration-200"
+          className="block mt-3 text-center py-3.5 rounded-md bg-emerald-600 text-white font-semibold text-[15px] hover:bg-emerald-700 transition-colors duration-200"
           onClick={close}
         >
-          Jadwalkan Test Drive
+          Contact Us
         </Link>
       </div>
     </>
