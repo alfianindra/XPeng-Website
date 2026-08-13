@@ -4,7 +4,7 @@ export const NAV_LINKS = [
   { href: '/models/xpeng-x9-pro-plus-facelift',  label: 'All New XPENG X9 Pro+'  },
   { href: '/gallery',                            label: 'Galeri'   },
   { href: '/articles',                           label: 'Artikel'  },
-  { href: '/fleet',                              label: 'Fleet Order' },
+  { href: '/fleet',                              label: 'COP' },
 ] as const
 
 export const FOOTER_MODEL_LINKS = [

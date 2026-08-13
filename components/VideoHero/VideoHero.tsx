@@ -58,27 +58,8 @@ export default function VideoHero() {
       {/* Top gradient — keeps navbar text readable over the video */}
       <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-black/50 to-transparent pointer-events-none" />
 
-      {/* ── Welcome To + XPENG logo — static, always visible ──────────── */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 pointer-events-none select-none">
-        <p className="font-display text-[clamp(28px,5vw,52px)] font-black tracking-[-0.04em] text-white text-center px-6">
-          Welcome To
-        </p>
-        <Image
-          src="/logo.png"
-          alt="XPENG"
-          width={955}
-          height={165}
-          className="h-14 sm:h-16 md:h-20 w-auto object-contain"
-          style={{ filter: 'brightness(0) invert(1)' }}
-          priority
-        />
-      </div>
-
       {/* ── Our Lineup — static, always visible ────────────────────────── */}
       <div className="absolute bottom-14 sm:bottom-20 inset-x-0 flex flex-col items-center gap-4 pointer-events-none select-none">
-        <p className="font-display text-[clamp(28px,5vw,60px)] font-black tracking-[-0.03em] text-white text-center">
-          Our Lineup
-        </p>
         <svg
           width="36"
           height="36"
@@ -92,6 +73,9 @@ export default function VideoHero() {
         >
           <polyline points="6 9 12 15 18 9" />
         </svg>
+        <p className="font-display text-[clamp(14px,2vw,22px)] font-normal tracking-[-0.02em] text-white text-center">
+          Our Lineup
+        </p>
       </div>
     </div>
   )
