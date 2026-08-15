@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import LeadForm from '@/components/LeadForm/LeadForm'
 import dealer from '@/lib/dealer'
 import { Whatsapp as WhatsappIcon } from '@/icons'
-import WhatsappButtonTracked from '@/components/WhatsappButtonTracked/WhatsappButtonTracked'
+import {WhatsappButtonTracked} from '@/components'
 
 export const metadata: Metadata = {
   title: 'Test Drive — XPENG Sunter Jakarta',
