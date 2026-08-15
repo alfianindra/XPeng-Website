@@ -123,6 +123,19 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       className={`${inter.variable} ${interTight.variable}`}
     >
     <head>
+      {/* Google tag (gtag.js) managed safely using Next.js Script */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=GT-5MR6QC7H"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'GT-5MR6QC7H');
+        `}
+      </Script>
       {/* Cloudinary CDN — preconnect eliminates DNS+TCP+TLS handshake before first image */}
       <link rel="preconnect" href="https://res.cloudinary.com" />
       <link rel="dns-prefetch" href="https://res.cloudinary.com" />
