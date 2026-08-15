@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import LeadForm from '@/components/LeadForm/LeadForm'
 import dealer from '@/lib/dealer'
 import { Whatsapp as WhatsappIcon } from '@/icons'
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: 'Test Drive — XPENG Sunter Jakarta',
@@ -33,6 +34,20 @@ const SOCIAL_LINKS = [
 export default function ContactPage() {
   return (
     <main className="pt-nav min-h-screen bg-bg">
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=AW-18185183614"
+        strategy="afterInteractive"
+      />
+
+      <Script id="gtag-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'AW-18185183614');
+        `}
+      </Script>
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-14 lg:py-20">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 items-start">
 
