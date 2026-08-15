@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { FOOTER_MODEL_LINKS, FOOTER_INFO_LINKS } from '@/lib/constants'
+import {FooterTextLinkTracked} from '@/components'
 import dealer from '@/lib/dealer'
 
 const SOCIAL_LINKS = [
@@ -73,14 +74,14 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="hover:text-text-1 transition-colors duration-200"
               >{dealer.address}</a>
-              <a
-                href={'https://wa.link/4kx99e'}
+              <FooterTextLinkTracked
+                href="https://wa.link/4kx99e"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-text-1 transition-colors duration-200"
               >
                 WhatsApp: +{dealer.whatsapp}
-              </a>
+              </FooterTextLinkTracked>
             </div>
           </div>
 

@@ -4,6 +4,7 @@ import LeadForm from '@/components/LeadForm/LeadForm'
 import dealer from '@/lib/dealer'
 import { Whatsapp as WhatsappIcon } from '@/icons'
 import {WhatsappButtonTracked} from '@/components'
+import {TrackedFormWrapper} from '@/components'
 
 export const metadata: Metadata = {
   title: 'Test Drive — XPENG Sunter Jakarta',
@@ -51,9 +52,10 @@ export default function ContactPage() {
               Isi formulir di bawah dan tim kami akan menghubungi Anda dalam 24 jam
               untuk konfirmasi jadwal test drive.
             </p>
-
-            <LeadForm showEmail source="contact" />
-
+            <TrackedFormWrapper>
+              <LeadForm showEmail source="contact" />
+            </TrackedFormWrapper>
+  
             {/* WhatsApp CTA 1: Inline below the form */}
             <div className="mt-8 pt-8 border-t border-border-sub">
               <p className="text-[13px] text-text-3 text-center mb-4">atau hubungi langsung</p>
