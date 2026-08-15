@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { models } from '@/lib/model'
 import dealer from '@/lib/dealer'
-
+import {ButtonTracked} from '@/components'
 export default function FleetForm() {
   const [company, setCompany] = useState('')
   const [modelSlug, setModelSlug] = useState('')
@@ -94,14 +94,14 @@ export default function FleetForm() {
         />
       </div>
 
-      <button
+      <ButtonTracked
         type="submit"
         disabled={!canSubmit}
         className="w-full text-[15px] font-semibold bg-text-1 text-bg py-3.5 rounded-sm hover:opacity-90 transition-opacity duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
         aria-disabled={!canSubmit}
       >
         Pesan Sekarang
-      </button>
+      </ButtonTracked>
     </form>
   )
 }
