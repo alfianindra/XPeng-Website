@@ -54,18 +54,16 @@ export default function ContactPage() {
 
             <LeadForm showEmail source="contact" />
 
-            {/* WhatsApp CTA — visible inline, below the form */}
+            {/* WhatsApp CTA 1: Inline below the form */}
             <div className="mt-8 pt-8 border-t border-border-sub">
               <p className="text-[13px] text-text-3 text-center mb-4">atau hubungi langsung</p>
-              <a
-                href={`https://wa.me/${dealer.whatsapp}?text=${encodeURIComponent('Halo, saya ingin bertanya tentang XPENG. Boleh minta informasinya?')}`}
-                target="_blank"
-                rel="noopener noreferrer"
+              <WhatsappButtonTracked
+                href={whatsappUrl}
                 className="flex items-center justify-center gap-2.5 w-full bg-[#25D366] text-white text-[15px] font-semibold rounded-sm py-3.5 hover:bg-[#20bc5a] transition-colors duration-200"
               >
                 <WhatsappIcon />
                 Chat via WhatsApp
-              </a>
+              </WhatsappButtonTracked>
             </div>
           </div>
 
