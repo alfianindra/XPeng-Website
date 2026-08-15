@@ -13,11 +13,11 @@ import { fireConversion } from '@/utils/gtag.util'
 const HERO_VH_MULTIPLIER = 1
 
 // Google Ads conversion action "Klik Tombol Contact Us"
-const CONTACT_CONVERSION_LABEL = 'AW-18185183614/hsf6CIO4utgcEP7Cr99D'
+// const CONTACT_CONVERSION_LABEL = 'AW-18185183614/hsf6CIO4utgcEP7Cr99D'
 
 export default function Navbar() {
   const pathname = usePathname()
-  const router = useRouter()
+  // const router = useRouter()
   const [open, setOpen] = useState(false)
   // Start transparent on the home page; other pages always opaque
   const [transparent, setTransparent] = useState(pathname === '/')
@@ -26,11 +26,11 @@ export default function Navbar() {
 
   // Track the click as a conversion, then navigate — but let modified clicks
   // (open in new tab, etc.) fall through to normal browser/Link behavior.
-  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return
-    e.preventDefault()
-    fireConversion(CONTACT_CONVERSION_LABEL, () => router.push('/contact'))
-  }
+  // const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  //   if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return
+  //   e.preventDefault()
+  //   fireConversion(CONTACT_CONVERSION_LABEL, () => router.push('/contact'))
+  // }
 
   useEffect(() => {
     if (pathname !== '/') {
@@ -106,7 +106,7 @@ export default function Navbar() {
         <div className="col-3 flex justify-end items-center gap-2">
           <Link
             href="/contact"
-            onClick={handleContactClick}
+            // onClick={handleContactClick}
             className={`hidden md:inline-block text-[13px] font-semibold px-5 py-2 rounded-sm transition-colors duration-200 whitespace-nowrap ${
               transparent
                 ? 'border border-white/60 text-white hover:bg-white/15'
@@ -153,10 +153,10 @@ export default function Navbar() {
         <Link
           href="/contact"
           className="block mt-3 text-center py-3.5 rounded-md bg-emerald-600 text-white font-semibold text-[15px] hover:bg-emerald-700 transition-colors duration-200"
-          onClick={e => {
-            close()
-            handleContactClick(e)
-          }}
+          // onClick={e => {
+          //   close()
+          //   handleContactClick(e)
+          // }}
         >
           Contact Us
         </Link>
