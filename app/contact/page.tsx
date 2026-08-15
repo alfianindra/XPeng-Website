@@ -32,6 +32,8 @@ const SOCIAL_LINKS = [
 ]
 
 export default function ContactPage() {
+  const whatsappUrl = `https://wa.me/${dealer.whatsapp}?text=${encodeURIComponent('Halo, saya ingin bertanya tentang XPENG. Boleh minta informasinya?')}`
+
   return (
     <main className="pt-nav min-h-screen bg-bg">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-14 lg:py-20">
@@ -139,7 +141,17 @@ export default function ContactPage() {
 
               {/* WhatsApp CTA */}
               <a
-                href={`https://wa.me/${dealer.whatsapp}`}
+                href={whatsappUrl}
+                onClick={(e) => {
+                  e.preventDefault();
+                  // @ts-ignore
+                  if (typeof window.gtag_report_conversion === 'function') {
+                    // @ts-ignore
+                    window.gtag_report_conversion(whatsappUrl);
+                  } else {
+                    window.location.href = whatsappUrl;
+                  }
+                }}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white text-[14px] font-semibold rounded-lg py-3 mb-5 hover:bg-[#20bc5a] transition-colors duration-200"
