@@ -123,7 +123,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       className={`${inter.variable} ${interTight.variable}`}
     >
     <head>
-      {/* Google tag (gtag.js) managed safely using Next.js Script */}
+      {/* Google tag (gtag.js) */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=GT-5MR6QC7H"
         strategy="afterInteractive"
@@ -136,8 +136,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           gtag('config', 'GT-5MR6QC7H');
 
           function gtag_report_conversion(url) {
+            var sent = false;
             var callback = function () {
-              if (typeof(url) != 'undefined') {
+              if (!sent && typeof(url) != 'undefined') {
+                sent = true;
                 window.location = url;
               }
             };
@@ -146,11 +148,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 'send_to': 'AW-18185183614/HKOVCNXaguIcEP7Cr99D',
                 'event_callback': callback
             });
+
+            // Fallback pengaman agar browser tetap redirect jika callback Google terlambat
+            setTimeout(callback, 1000);
+            
             return false;
           }
         `}
       </Script>
-      {/* Cloudinary CDN — preconnect eliminates DNS+TCP+TLS handshake before first image */}
+      {/* Cloudinary CDN */}
       <link rel="preconnect" href="https://res.cloudinary.com" />
       <link rel="dns-prefetch" href="https://res.cloudinary.com" />
       <script
@@ -165,7 +171,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <WhatsappButton />
       <Analytics />
       <SpeedInsights />
-      {/* Google AdSense — site verification + ad serving */}
+      {/* Google AdSense */}
       <Script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532024392635402"
