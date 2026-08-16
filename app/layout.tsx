@@ -128,14 +128,32 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         src="https://www.googletagmanager.com/gtag/js?id=GT-5MR6QC7H"
         strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+     <Script id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'GT-5MR6QC7H');
 
+          // Debounce window (ms). Blocks a second real conversion event if the
+          // button/link is double-clicked or double-tapped within this window.
+          var CONVERSION_DEBOUNCE_MS = 1000;
+          window.__lastConversionAt = window.__lastConversionAt || 0;
+
           function gtag_report_conversion(url) {
+            var now = Date.now();
+
+            // Debounced: a conversion already fired very recently (e.g. a
+            // double-click). Skip sending another event, but still let the
+            // navigation happen so the user isn't stuck.
+            if (now - window.__lastConversionAt < CONVERSION_DEBOUNCE_MS) {
+              if (typeof(url) != 'undefined') {
+                window.location = url;
+              }
+              return false;
+            }
+            window.__lastConversionAt = now;
+
             var sent = false;
             var callback = function () {
               if (!sent && typeof(url) != 'undefined') {
