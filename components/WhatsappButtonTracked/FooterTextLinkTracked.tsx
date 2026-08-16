@@ -20,6 +20,8 @@ export default function FooterTextLinkTracked({
       href={href}
       onClick={(e) => {
         e.preventDefault();
+        e.stopPropagation(); // Mencegah event klik merambat ke elemen pembungkus (mencegah double trigger)
+        
         // @ts-ignore
         if (typeof window.gtag_report_conversion === 'function') {
           // @ts-ignore
