@@ -135,7 +135,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           gtag('js', new Date());
           gtag('config', 'GT-5MR6QC7H');
 
-          function gtag_report_conversion(url) {
+          function gtag_report_conversion(url, customParams) {
             var callback = function () {
               if (typeof(url) != 'undefined') {
                 window.location = url;
@@ -145,7 +145,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             gtag('event', 'conversion', {
                 'send_to': 'AW-18185183614/HKOVCNXaguIcEP7Cr99D',
                 'event_callback': callback
-            });
+            }, customParams);
             return false;
           }
         `}
