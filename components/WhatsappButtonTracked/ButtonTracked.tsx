@@ -1,7 +1,7 @@
 'use client'
 
 interface Props {
-  href?: string 
+  href?: string // Opsional, kalau ada jadi link (<a>), kalau tidak ada jadi button (<button>)
   type?: "button" | "submit" | "reset"
   disabled?: boolean
   className?: string
@@ -17,8 +17,16 @@ export default function ButtonTracked({
   children,
   'aria-disabled': ariaDisabled
 }: Props) {
-  
-  // Jika ada href, render sebagai tag <a> dengan tracking link
+  const handleClick = (e: React.MouseEvent) => {
+    // Jika bukan link, cegah default behavior form jika perlu ditangani manual
+    // @ts-ignore
+    if (typeof window.gtag_report_conversion === 'function') {
+      // @ts-ignore
+      window.gtag_report_conversion(href);
+    }
+  }
+
+  // Jika ada href, render sebagai tag <a>
   if (href) {
     return (
       <a
@@ -42,12 +50,13 @@ export default function ButtonTracked({
     )
   }
 
-  // Jika tidak ada href, render sebagai tag <button> (Tracking diserahkan ke onSubmit form agar tidak double)
+  // Jika tidak ada href, render sebagai tag <button>
   return (
     <button
       type={type}
       disabled={disabled}
       aria-disabled={ariaDisabled}
+      onClick={handleClick}
       className={className}
     >
       {children}

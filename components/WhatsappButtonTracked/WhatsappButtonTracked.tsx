@@ -1,5 +1,7 @@
 'use client'
 
+import { Whatsapp as WhatsappIcon } from '@/icons'
+
 interface Props {
   href: string
   className?: string
