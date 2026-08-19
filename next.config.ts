@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
         hostname: 'res.cloudinary.com',
         pathname: '/cavemine/**',
       },
+      { protocol: 'https', 
+        hostname: 'res.cloudinary.com', 
+        pathname: '/fjwmmpio/**', 
+      },
       {
         protocol: 'https',
         hostname: 's-cdn.xpeng.com',

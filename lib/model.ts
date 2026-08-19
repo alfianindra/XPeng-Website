@@ -176,7 +176,7 @@ export const models: CarModel[] = [
       'https://res.cloudinary.com/cavemine/image/upload/v1778991771/x9_pro_lxc9xe.png',
     heroImageMobile:
       'https://res.cloudinary.com/cavemine/image/upload/v1778991301/x9_pro_small_w5gavn.png',
-    cardImage:   'https://res.cloudinary.com/cavemine/image/upload/v1778940853/x9_pro_zkbfhd.png',
+    cardImage:   'https://res.cloudinary.com/fjwmmpio/image/upload/v1787131656/xpengx9pro.png',
     detailImage:  'https://res.cloudinary.com/cavemine/image/upload/v1778941655/x9pro-white_ax57yx.png',
     brochureUrl:  'https://res.cloudinary.com/cavemine/image/upload/v1778990060/X9_nms0de.pdf',
     specs: [
@@ -287,7 +287,7 @@ export const models: CarModel[] = [
     heroImageMobile:
       'https://res.cloudinary.com/cavemine/image/upload/v1778991297/x9_pro_plus_small_ftxwwz.png',
     cardImage:
-      'https://res.cloudinary.com/cavemine/image/upload/v1778940846/x9_pro_plus_jwysmh.png',
+      'https://res.cloudinary.com/fjwmmpio/image/upload/v1787131680/xpengx9proplus.png',
     detailImage:  'https://res.cloudinary.com/cavemine/image/upload/v1778941655/x9pro-white_ax57yx.png',
     brochureUrl:  'https://res.cloudinary.com/cavemine/image/upload/v1778990060/X9_nms0de.pdf',
     specs: [
