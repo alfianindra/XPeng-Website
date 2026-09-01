@@ -12,7 +12,7 @@ export const FOOTER_MODEL_LINKS = [
   { href: '/models/g6-pro',                      label: 'G6 Pro'  },
   { href: '/models/xpeng-x9-pro-facelift',       label: 'X9 Pro'  },
   { href: '/models/xpeng-x9-pro-plus-facelift',  label: 'X9 Pro+' },
-  { href: '/models/xpeng-mona-l03',              label: 'Mona LO3'}
+  { href: '/models/xpeng-mona-l03',              label: 'Mona L03'}
 ] as const
 
 export const FOOTER_INFO_LINKS = [
