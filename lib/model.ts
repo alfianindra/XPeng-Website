@@ -24,6 +24,11 @@ export type CarColor = {
   hex:   string
   image: string
 }
+export type InteriorColor = {
+  name:  string
+  hex:   string
+  image: string
+}
 
 // A performance/trim variant of a model, toggled on the model detail page hero
 // (e.g. Standard vs AWD). Only drives the hero panel — badge, price, top specs,
@@ -35,6 +40,7 @@ export type CarVariant = {
   priceFrom: string
   specs:     CarSpec[]      // first 3 are shown as the hero's top spec tiles
   colors:    CarColor[]
+  interiorColors?: InteriorColor[]
 }
 
 export type CarModel = {
@@ -52,6 +58,7 @@ export type CarModel = {
   features:        CarFeature[]
   gallery:         string[]
   colors:          CarColor[]
+  interiorColors?: InteriorColor[]
   variants?:       CarVariant[]  // optional trim toggle shown in the hero (Standard vs ...)
   brochureUrl?:    string        // Cloudinary PDF — optional, shown as download link
 }
@@ -88,6 +95,7 @@ export const models: CarModel[] = [
       { label: 'Torsi',         value: '440',  unit: 'Nm',  category: 'performance' },
       { label: 'Baterai',       value: '80,8', unit: 'kWh', category: 'battery' },
       { label: 'DC Charging',   value: '451',  unit: 'kW',  category: 'battery' },
+      { label: 'Kapasitas',     value: '5',  unit: 'kursi',  category: 'dimensions' },
     ],
     features: [
       {
@@ -140,6 +148,10 @@ export const models: CarModel[] = [
       { name: 'Midnight Black', hex: '#1a1a1a', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778940489/g6-black_xfaaa7.png'  },
       { name: 'Silver Frost',   hex: '#b8bcc0', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778940495/g6-silver_exrgv9.png' },
       { name: 'Stellar Purple', hex: '#5c2d8e', image: 'https://res.cloudinary.com/cavemine/image/upload/v1779107644/purple_zqmvo3.png'    },
+    ],
+    interiorColors: [
+      { name: 'Dark Gray',   hex: '#3a3a3a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268158/G6_DARK_GREY.jpg' },
+      { name: 'Light Gray',  hex: '#e0e0e0', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/G6_WHITE_GREY.jpg' },
     ],
     variants: [
       {
@@ -274,6 +286,11 @@ export const models: CarModel[] = [
       { name: 'Dark Night Black',hex: '#1a1a1a', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778941594/x9pro-black_ag4kna.png'  },
       { name: 'Crescent Silver', hex: '#b8bcc0', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778941642/x9pro-silver_bi7bsd.png' },
     ],
+    interiorColors: [
+      { name: 'Coffee',           hex: '#4A2C2A', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/X9_Coffee.jpg' },
+      { name: 'Rose Brown',       hex: '#B08968', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/X9_Rose_Brown.jpg' },
+      { name: 'Meteorite Black',  hex: '#1a1a1a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/X9_Metorite_Black.jpg' },
+    ],
   },
   {
     slug:        'xpeng-x9-pro-plus-facelift',
@@ -385,6 +402,95 @@ export const models: CarModel[] = [
       { name: 'Dark Night Black',hex: '#1a1a1a', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778941594/x9pro-black_ag4kna.png'  },
       { name: 'Crescent Silver', hex: '#b8bcc0', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778941642/x9pro-silver_bi7bsd.png' },
       { name: 'Matte Gray',      hex: '#6b6f72', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778941595/x9pro-gray_zgecv7.png'   },
+    ],
+    interiorColors: [
+      { name: 'Coffee',           hex: '#4A2C2A', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/X9_Coffee.jpg' },
+      { name: 'Rose Brown',       hex: '#B08968', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/X9_Rose_Brown.jpg' },
+      { name: 'Meteorite Black',  hex: '#1a1a1a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/X9_Metorite_Black.jpg' },
+    ],
+  },
+  {
+    slug:        'xpeng-mona-l03',
+    name:        'XPENG Mona L03',
+    tagline:     'SUV Coupe Cerdas. Teknologi untuk Semua.',
+    description: 'SUV coupe listrik AI generasi terbaru XPENG, dirancang untuk pasar global dengan teknologi cerdas yang mudah diakses.',
+    badge:       'Baru',
+    priceFrom:   'Segera hadir',
+    heroImage:       'https://res.cloudinary.com/fjwmmpio/image/upload/v1788174844/Mona_LO3_hero.jpg',
+    heroImageMobile: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788174895/Mona_LO3_hero_mobile.jpg',
+    cardImage:       'https://res.cloudinary.com/fjwmmpio/image/upload/v1788174585/XPeng_Mona_LO3.jpg',
+    detailImage:     'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173330/Phantom_Purple.jpg',
+    specs: [
+      { label: 'WLTP Range',  value: '440',  unit: 'km',    category: 'battery' },
+      { label: '0–100 km/h',  value: '4,5',  unit: 'det',   category: 'performance' },
+      { label: 'Tenaga',      value: '388',  unit: 'hp',    category: 'performance' },
+      { label: 'Torsi',       value: '431',  unit: 'Nm',    category: 'performance' },
+      { label: 'Baterai',     value: '71,2', unit: 'kWh',   category: 'battery' },
+      { label: 'DC Charging', value: '236',  unit: 'kW',    category: 'battery' },
+      { label: 'Kapasitas',   value: '5',    unit: 'kursi', category: 'dimensions' },
+    ],
+    features: [
+      {
+        tag: 'Otonomi', icon: 'autopilot',
+        image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788172359/VLA.jpg',
+        name: 'Intelligent Driving VLA 2.0',
+        description: 'Ditenagai hingga 2 chip Turing AI XPENG dengan performa hingga 1.500 TOPS pada varian Ultra. Mendukung Flexible Parking Assist untuk ruang parkir sempit atau tidak standar, Reversing Assist, Remote Summon, dan Remote Parking Assist.',
+        stat: '1.500', statLabel: 'TOPS · 2 chip Turing AI',
+      },
+      {
+        tag: 'Pengisian', icon: 'charging',
+        image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788172368/CHARGING.jpg',
+        name: 'Pengisian Cepat 10→80%',
+        description: 'Baterai LFP berkapasitas hingga 69 kWh dengan jarak tempuh WLTP hingga 520 km. Pengisian daya dari 10% ke 80% hanya membutuhkan waktu sekitar 19–20 menit, didukung arsitektur pengisian cepat XPENG generasi terbaru.',
+        stat: '19–20 menit', statLabel: '10% → 80%',
+      },
+      {
+        tag: 'Kokpit', icon: 'display',
+        image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788172377/XOS_Cockpit.jpg',
+        name: 'XOS 6.0 Smart Cockpit',
+        description: 'Sistem kokpit pintar generasi terbaru dengan layar sentuh utama 15.6 inci beresolusi 2.5K dan Head-Up Display di kaca depan. XPENG L03 menjadi model pertama dengan integrasi Google Maps native lewat arsitektur SDK langsung, menghadirkan navigasi yang lebih akurat.',
+        stat: '15.6"', statLabel: 'layar 2.5K + Google Maps native',
+      },
+      {
+        tag: 'Kenyamanan', icon: 'seats',
+        image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788172383/Seat.jpg',
+        name: 'Lounge-Style Seats',
+        description: 'Kursi bergaya lounge dengan mode reclining zero-gravity dan fitur pijat multititik, dilengkapi pemanas dan pendingin untuk kenyamanan sepanjang perjalanan. Ruang kabin lega dengan wheelbase 2.850 mm.',
+        stat: '2.850', statLabel: 'mm wheelbase',
+      },
+      {
+        tag: 'Praktis', icon: 'tow',
+        image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788172390/Penyimpanan.jpg',
+        name: '37 Titik Penyimpanan & Kapasitas Tarik',
+        description: 'Kabin dirancang untuk mobilitas sehari-hari dengan 37 titik penyimpanan tersebar di seluruh kabin, ruang bagasi hingga 539 liter, serta kapasitas tarik hingga 1.500 kg untuk kebutuhan rekreasi maupun angkut beban tambahan.',
+        stat: '1.500', statLabel: 'kg kapasitas tarik',
+      },
+      {
+        tag: 'Aerodinamika', icon: 'vents',
+        image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788172396/Aerodinamika.jpg',
+        name: 'Desain Vital Flow — Cd 0,228',
+        description: 'Dirancang oleh mantan Kepala Desain Eksterior Ferrari, JuanMa López. Bodi wide-body dengan siluet fastback, pintu frameless, dan 22 optimalisasi aerodinamika menghasilkan koefisien hambatan udara 0,228 — terbaik di kelasnya, menambah jarak tempuh hingga 59 km.',
+        stat: '0,228', statLabel: 'koefisien drag (Cd)',
+      },
+    ],
+    gallery: [
+      'https://res.cloudinary.com/fjwmmpio/image/upload/v1788174032/Mona1.jpg',
+      'https://res.cloudinary.com/fjwmmpio/image/upload/v1788174041/Mona2.jpg',
+      'https://res.cloudinary.com/fjwmmpio/image/upload/v1788174047/Mona3.jpg',
+      'https://res.cloudinary.com/fjwmmpio/image/upload/v1788174054/Mona4.jpg',
+      'https://res.cloudinary.com/fjwmmpio/image/upload/v1788174061/Mona5.jpg'
+    ],
+    colors: [
+      { name: 'Phantom Purple', hex: '#3c2a4a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173330/Phantom_Purple.jpg' },
+      { name: 'Arctic White',   hex: '#f2f2f0', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173339/Artic_White.jpg' },
+      { name: 'Midnight Black', hex: '#161616', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173347/Midnight_Black.jpg' },
+      { name: 'Silver Frost',   hex: '#c7cbce', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173354/Silver_Frost.jpg' },
+      { name: 'Rock Gray',      hex: '#6f7378', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173363/Rock_Gray.jpg' },
+      { name: 'Black Edition',  hex: '#0a0a0a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173370/Black_Edition.jpg' },
+    ],
+    interiorColors: [
+      { name: 'Dark Grey',  hex: '#3a3a3a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/MonaLO3_Dark_Grey.jpg' },
+      { name: 'White Grey', hex: '#e0e0e0', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/MonaLO3_White_Grey.jpg' },
     ],
   },
 ]

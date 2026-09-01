@@ -9,30 +9,49 @@ import dealer from '@/lib/dealer'
 
 export default function ModelHero({ model }: { model: CarModel }) {
   const [activeVariantId, setActiveVariantId] = useState<string | null>(null)
-  const [activeImage, setActiveImage] = useState(model.detailImage ?? model.heroImage)
-  const [selected, setSelected] = useState(0)
+  const [selectedExterior, setSelectedExterior] = useState(0)
+  const [selectedInterior, setSelectedInterior] = useState(0)
+  const [view, setView] = useState<'exterior' | 'interior'>('exterior')
   const [imgLoaded, setImgLoaded] = useState(false)
 
-  const activeVariant = model.variants?.find(v => v.id === activeVariantId) ?? null
-  const badge     = activeVariant?.badge ?? model.badge
-  const priceFrom = activeVariant?.priceFrom ?? model.priceFrom
-  const specs     = activeVariant?.specs ?? model.specs
-  const colors    = activeVariant?.colors ?? model.colors
-  const ctaLabel  = activeVariant ? `${model.name} ${activeVariant.label}` : model.name
+  const activeVariant   = model.variants?.find(v => v.id === activeVariantId) ?? null
+  const badge           = activeVariant?.badge ?? model.badge
+  const priceFrom       = activeVariant?.priceFrom ?? model.priceFrom
+  const specs            = activeVariant?.specs ?? model.specs
+  const colors           = activeVariant?.colors ?? model.colors
+  const interiorColors   = activeVariant?.interiorColors ?? model.interiorColors ?? []
+  const ctaLabel         = activeVariant ? `${model.name} ${activeVariant.label}` : model.name
 
-  const handleColor = (i: number) => {
-    setSelected(i)
-    const img = colors[i].image
+  const hasInterior     = interiorColors.length > 0
+  const activeExterior  = colors[selectedExterior]
+  const activeInterior  = interiorColors[selectedInterior]
+
+  const activeImage =
+    view === 'interior' && activeInterior
+      ? activeInterior.image
+      : (activeExterior?.image || model.detailImage || model.heroImage)
+
+  const handleExteriorColor = (i: number) => {
+    setSelectedExterior(i)
     setImgLoaded(false)
-    setActiveImage(img || model.heroImage)
+  }
+
+  const handleInteriorColor = (i: number) => {
+    setSelectedInterior(i)
+    setImgLoaded(false)
   }
 
   const handleVariant = (id: string | null) => {
     setActiveVariantId(id)
-    setSelected(0)
-    const nextColors = model.variants?.find(v => v.id === id)?.colors ?? model.colors
+    setSelectedExterior(0)
+    setSelectedInterior(0)
+    setView('exterior')
     setImgLoaded(false)
-    setActiveImage(nextColors[0]?.image || model.heroImage)
+  }
+
+  const handleView = (v: 'exterior' | 'interior') => {
+    setView(v)
+    setImgLoaded(false)
   }
 
   return (
@@ -40,13 +59,39 @@ export default function ModelHero({ model }: { model: CarModel }) {
 
       {/* Left — image */}
       <div className="relative aspect-video lg:aspect-auto lg:self-stretch overflow-hidden bg-bg-card lg:border-r lg:border-border">
+
+        {/* Toggle Eksterior / Interior — only shown when this color has an interior photo */}
+        {hasInterior && (
+          <div className="absolute top-4 left-4 z-20 inline-flex bg-bg-card/90 border border-border-sub rounded-full p-1 backdrop-blur">
+            <button
+              onClick={() => handleView('exterior')}
+              aria-pressed={view === 'exterior'}
+              className={`text-[12px] font-semibold px-4 py-1.5 rounded-full transition-colors duration-200 ${
+                view === 'exterior' ? 'bg-text-1 text-bg' : 'text-text-3'
+              }`}
+            >
+              Eksterior
+            </button>
+            <button
+              onClick={() => handleView('interior')}
+              aria-pressed={view === 'interior'}
+              className={`text-[12px] font-semibold px-4 py-1.5 rounded-full transition-colors duration-200 ${
+                view === 'interior' ? 'bg-text-1 text-bg' : 'text-text-3'
+              }`}
+            >
+              Interior
+            </button>
+          </div>
+        )}
+
         {/* Shimmer skeleton shown while image loads */}
         {!imgLoaded && (
           <div className="absolute inset-0 bg-bg-card animate-pulse z-10" />
         )}
         <Image
+          key={activeImage}
           src={activeImage}
-          alt={model.name}
+          alt={`${model.name} — ${(view === 'interior' ? activeInterior?.name : activeExterior?.name) ?? ''} (${view})`}
           fill
           className={`object-contain object-center scale-90 transition-opacity duration-500 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
           priority
@@ -121,27 +166,61 @@ export default function ModelHero({ model }: { model: CarModel }) {
           ))}
         </div>
 
-        {/* Color picker */}
-        {colors.length > 0 && (
+        {/* Color picker — shows exterior swatches or interior swatches depending on the
+            active tab. The two lists are fully independent: a model can have any number
+            of exterior colors and any (unrelated) number of interior colors. */}
+        {view === 'exterior' && colors.length > 0 && (
           <div className="mb-8">
             <p className="text-[12px] font-semibold tracking-[0.08em] uppercase text-text-3 mb-3">
               Warna —{' '}
               <span className="text-text-2 normal-case font-normal tracking-normal">
-                {colors[selected].name}
+                {activeExterior?.name}
               </span>
             </p>
             <div className="flex gap-2.5 flex-wrap">
               {colors.map((color, i) => (
                 <button
                   key={color.name}
-                  onClick={() => handleColor(i)}
+                  onClick={() => handleExteriorColor(i)}
                   title={color.name}
                   className={`w-11 h-11 rounded-full border-2 transition-all duration-200 flex items-center justify-center ${
-                    i === selected
+                    i === selectedExterior
                       ? 'border-text-1 scale-110'
                       : 'border-border-sub hover:border-border'
                   }`}
-                  aria-pressed={i === selected}
+                  aria-pressed={i === selectedExterior}
+                  aria-label={color.name}
+                >
+                  <span
+                    className="w-7 h-7 rounded-full block"
+                    style={{ backgroundColor: color.hex }}
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {view === 'interior' && interiorColors.length > 0 && (
+          <div className="mb-8">
+            <p className="text-[12px] font-semibold tracking-[0.08em] uppercase text-text-3 mb-3">
+              Warna Interior —{' '}
+              <span className="text-text-2 normal-case font-normal tracking-normal">
+                {activeInterior?.name}
+              </span>
+            </p>
+            <div className="flex gap-2.5 flex-wrap">
+              {interiorColors.map((color, i) => (
+                <button
+                  key={color.name}
+                  onClick={() => handleInteriorColor(i)}
+                  title={color.name}
+                  className={`w-11 h-11 rounded-full border-2 transition-all duration-200 flex items-center justify-center ${
+                    i === selectedInterior
+                      ? 'border-text-1 scale-110'
+                      : 'border-border-sub hover:border-border'
+                  }`}
+                  aria-pressed={i === selectedInterior}
                   aria-label={color.name}
                 >
                   <span

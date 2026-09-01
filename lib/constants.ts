@@ -2,6 +2,7 @@ export const NAV_LINKS = [
   { href: '/models/g6-pro',                      label: 'G6 Pro'   },
   { href: '/models/xpeng-x9-pro-facelift',       label: 'All New XPENG X9 Pro'   },
   { href: '/models/xpeng-x9-pro-plus-facelift',  label: 'All New XPENG X9 Pro+'  },
+  { href: '/models/xpeng-mona-l03',              label: 'XPENG Mona L03' },
   { href: '/gallery',                            label: 'Galeri'   },
   { href: '/articles',                           label: 'Artikel'  },
   { href: '/fleet',                              label: 'COP' },
