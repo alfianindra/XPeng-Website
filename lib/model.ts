@@ -439,7 +439,7 @@ export const models: CarModel[] = [
       },
       {
         tag: 'Pengisian', icon: 'charging',
-        image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788172368/CHARGING.jpg',
+        image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788269196/LO3_FastCharge.jpg',
         name: 'Pengisian Cepat 10→80%',
         description: 'Baterai LFP berkapasitas hingga 69 kWh dengan jarak tempuh WLTP hingga 520 km. Pengisian daya dari 10% ke 80% hanya membutuhkan waktu sekitar 19–20 menit, didukung arsitektur pengisian cepat XPENG generasi terbaru.',
         stat: '19–20 menit', statLabel: '10% → 80%',
