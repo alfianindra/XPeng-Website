@@ -493,7 +493,89 @@ export const models: CarModel[] = [
       { name: 'White Grey', hex: '#e0e0e0', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/MonaLO3_White_Grey.jpg' },
     ],
   },
+  {
+    slug:        'xpeng-g9',
+    name:        'XPENG G9',
+    tagline:     'SUV Flagship Cerdas. Premium Seperti Biasa.',
+    description: 'SUV listrik flagship XPENG dengan siluet fastback, kabin Nappa mewah berlayar ganda 2.4K, XPILOT ASSIST, suspensi udara dual-chamber, dan platform 800V pengisian 5C.',
+    badge:       'Flagship',
+    priceFrom:   'Segera hadir',
+    heroImage:       'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912721/G9-Hero_image.jpg',
+    heroImageMobile: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912724/G9-Hero_Card_Image.jpg',
+    cardImage:       'https://res.cloudinary.com/fjwmmpio/image/upload/v1789889259/Xpeng_G9.jpg',
+    detailImage:     'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912539/G9-EXT-ARTIC_WHITE.jpg',
+    specs: [
+      { label: 'WLTP Range',  value: '540',  unit: 'km',    category: 'battery' },
+      { label: '0–100 km/h',  value: '4,2',  unit: 'det',   category: 'performance' },
+      { label: 'Tenaga',      value: '423',  unit: 'kW',    category: 'performance' },
+      { label: 'Torsi',       value: '695',  unit: 'Nm',    category: 'performance' },
+      { label: 'Platform',    value: '800',  unit: 'V',     category: 'battery' },
+      { label: 'Charging 10–80%', value: '12', unit: 'menit', category: 'battery' },
+      { label: 'Kapasitas',   value: '5',    unit: 'kursi', category: 'dimensions' },
+      { label: 'Baterai',     value: '98', unit: 'kWh',   category: 'battery' },
+    ],
+    features: [
+      {
+        tag: 'Otonomi', icon: 'autopilot',
+        image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789913449/G9-FEAT-XPILOT.jpg',
+        name: 'XPILOT ASSIST',
+        description: 'Sistem bantuan mengemudi dengan XPENG Full-Stack Lofic Architecture, dilengkapi kamera binokular depan dan kamera belakang untuk persepsi yang akurat di kondisi terang maupun gelap. Jangkauan persepsi visual meningkat 125% dibanding generasi sebelumnya, mampu mengenali 49 jenis rintangan dinamis dan statis. Pengemudi tetap harus waspada dan siap mengambil alih kendali.',
+        stat: '125%', statLabel: 'jangkauan persepsi visual vs generasi sebelumnya',
+      },
+      {
+        tag: 'Pengisian', icon: 'charging',
+        image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789913449/G9-FEAT-FCHARGE.jpg',
+        name: 'Supercharging 5C — 10→80% dalam 12 Menit',
+        description: 'Platform tegangan tinggi 800V SiC di seluruh domain kendaraan mendukung pengisian baterai 5C. Pengisian daya dari 10% ke 80% hanya membutuhkan waktu sekitar 12 menit.',
+        stat: '12 menit', statLabel: '10% → 80% · platform 800V SiC',
+      },
+      {
+        tag: 'Kokpit', icon: 'display',
+        image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789913449/G9-FEAT-COCKPIT.jpg',
+        name: 'Flagship Smart Cockpit',
+        description: 'Dua layar melayang 14,96 inci beresolusi 2.4K, dengan sistem operasi berpusat pada pengguna, kontrol berbasis skenario, dan pembaruan OTA berkelanjutan. Kontrol suara AI multi-zona merespons instan, mendukung perintah dari kursi belakang dan percakapan yang natural.',
+        stat: '14,96"', statLabel: 'dua layar 2.4K melayang',
+      },
+      {
+        tag: 'Kenyamanan', icon: 'seats',
+        image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789913448/G9-FEAT-SEATS.jpg',
+        name: 'Lounge-Like Comfort',
+        description: 'Kursi depan berbahan kulit Nappa berstandar OEKO-TEX baby-safe dengan pengaturan elektrik 12 arah, pemanas, ventilasi, dan pijat 10 titik. Kursi baris kedua dapat direbahkan secara elektrik dari 27° hingga 37°, lengkap dengan pemanas, ventilasi, dan pijat untuk pengalaman ala kelas satu.',
+        stat: '27°–37°', statLabel: 'sandaran elektrik kursi baris kedua',
+      },
+      {
+        tag: 'Performa', icon: 'vents',
+        image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789913448/G9-FEAT-AIRSUSPENSION.jpg',
+        name: 'Dual-Chamber Air Suspension',
+        description: 'Suspensi udara dual-chamber dengan ketinggian dan redaman adaptif yang menyesuaikan kecepatan dan mode berkendara. Ditopang distribusi torsi all-wheel yang seimbang dan output hingga 423 kW / 695 Nm, jarak pengereman dari 100 km/h ke 0 hanya 33,9 meter.',
+        stat: '33,9', statLabel: 'm pengereman 100 → 0 km/h',
+      },
+    ],
+    gallery: [
+      'https://res.cloudinary.com/fjwmmpio/image/upload/v1789913731/G9-GALERI-1.jpg',
+      'https://res.cloudinary.com/fjwmmpio/image/upload/v1789913731/G9-GALERI-2.jpg',
+      'https://res.cloudinary.com/fjwmmpio/image/upload/v1789913731/G9-GALERI-3.jpg',
+      'https://res.cloudinary.com/fjwmmpio/image/upload/v1789913731/G9-GALERI-4.jpg',
+      'https://res.cloudinary.com/fjwmmpio/image/upload/v1789913732/G9-GALERI-5.jpg',
+    ],
+    colors: [
+      { name: 'Arctic White',        hex: '#f2f2f0', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912539/G9-EXT-ARTIC_WHITE.jpg' },
+      { name: 'Graphite Gray',       hex: '#4a4d50', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912539/G9-EXT-GRAPHITE_GRAY.jpg' },
+      { name: 'Midnight Black',      hex: '#1c1e21', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912539/G9-EXT-MIDNIGHT_BLACK.jpg' },
+      { name: 'Silver Frost',        hex: '#c7cbce', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912539/G9-EXT-SILVER_FROST.jpg' },
+      { name: 'Kaitoke Green Matte', hex: '#33493d', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912539/G9-EXT-KAITOKE_GREEN_MATTE.jpg' },
+      { name: 'Black Edition',       hex: '#0a0a0a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912541/G9-EXT-BLACK_EDITION.jpg' },
+    ],
+    interiorColors: [
+      { name: 'Dark',       hex: '#3a3a3a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912628/G9-INT-dark.jpg' },
+      { name: 'Coffee',     hex: '#6b4a3a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912628/G9-INT-COFFEE.jpg' },
+      { name: 'Saddle',     hex: '#a0673a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912630/G9-INT-SADDLE.jpg' },
+      { name: 'Light Gray', hex: '#d0d0d0', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912632/G9-INT-LIGHT_GRAY.jpg' },
+    ],
+  },
 ]
+
+
 
 // Derived from models — keeps home page client bundle lean.
 export const carouselModels: CarouselModel[] = models.map(

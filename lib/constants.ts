@@ -3,6 +3,7 @@ export const NAV_LINKS = [
   { href: '/models/xpeng-x9-pro-facelift',       label: 'All New XPENG X9 Pro'   },
   { href: '/models/xpeng-x9-pro-plus-facelift',  label: 'All New XPENG X9 Pro+'  },
   { href: '/models/xpeng-mona-l03',              label: 'XPENG Mona L03' },
+  { href: '/models/xpeng-g9',                    label: 'XPENG G9' },
   { href: '/gallery',                            label: 'Galeri'   },
   { href: '/articles',                           label: 'Artikel'  },
   { href: '/fleet',                              label: 'COP' },
@@ -12,7 +13,8 @@ export const FOOTER_MODEL_LINKS = [
   { href: '/models/g6-pro',                      label: 'G6 Pro'  },
   { href: '/models/xpeng-x9-pro-facelift',       label: 'X9 Pro'  },
   { href: '/models/xpeng-x9-pro-plus-facelift',  label: 'X9 Pro+' },
-  { href: '/models/xpeng-mona-l03',              label: 'Mona L03'}
+  { href: '/models/xpeng-mona-l03',              label: 'Mona L03'},
+  { href: '/models/xpeng-g9',                    label: 'G9'},
 ] as const
 
 export const FOOTER_INFO_LINKS = [
