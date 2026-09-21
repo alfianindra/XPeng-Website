@@ -3,30 +3,30 @@ export type SpecCategory = 'performance' | 'battery' | 'dimensions' | 'safety'
 export type FeatureIcon = 'autopilot' | 'charging' | 'seats' | 'sunroof' | 'audio' | 'safety' | 'display' | 'v2l' | 'tow' | 'vents' | 'door'
 
 export type CarFeature = {
-  tag:        string        // e.g. "Otonomi", "Pengisian"
-  name:       string
-  description:string
-  stat?:      string        // e.g. "20", "2.180W"
+  tag: string        // e.g. "Otonomi", "Pengisian"
+  name: string
+  description: string
+  stat?: string        // e.g. "20", "2.180W"
   statLabel?: string        // e.g. "menit 10→80%", "output · 23 speaker"
-  icon:       FeatureIcon
-  image?:     string        // optional real photo — shown instead of SVG icon
+  icon: FeatureIcon
+  image?: string        // optional real photo — shown instead of SVG icon
 }
 
 export type CarSpec = {
   label: string
   value: string
-  unit:  string
+  unit: string
   category: SpecCategory
 }
 
 export type CarColor = {
-  name:  string
-  hex:   string
+  name: string
+  hex: string
   image: string
 }
 export type InteriorColor = {
-  name:  string
-  hex:   string
+  name: string
+  hex: string
   image: string
 }
 
@@ -34,33 +34,33 @@ export type InteriorColor = {
 // (e.g. Standard vs AWD). Only drives the hero panel — badge, price, top specs,
 // color — not the full spec grid, compare table, or gallery further down the page.
 export type CarVariant = {
-  id:        string        // e.g. 'awd'
-  label:     string        // short toggle label, e.g. 'AWD'
-  badge:     string
+  id: string        // e.g. 'awd'
+  label: string        // short toggle label, e.g. 'AWD'
+  badge: string
   priceFrom: string
-  specs:     CarSpec[]      // first 3 are shown as the hero's top spec tiles
-  colors:    CarColor[]
+  specs: CarSpec[]      // first 3 are shown as the hero's top spec tiles
+  colors: CarColor[]
   interiorColors?: InteriorColor[]
 }
 
 export type CarModel = {
-  slug:            string
-  name:            string
-  tagline:         string
-  description:     string
-  badge:           string
-  priceFrom:       string
-  heroImage:       string        // landscape — shown on md+ (desktop)
+  slug: string
+  name: string
+  tagline: string
+  description: string
+  badge: string
+  priceFrom: string
+  heroImage: string        // landscape — shown on md+ (desktop)
   heroImageMobile: string        // portrait/square — shown below md (phone)
-  cardImage:       string
-  detailImage:     string
-  specs:           CarSpec[]
-  features:        CarFeature[]
-  gallery:         string[]
-  colors:          CarColor[]
+  cardImage: string
+  detailImage: string
+  specs: CarSpec[]
+  features: CarFeature[]
+  gallery: string[]
+  colors: CarColor[]
   interiorColors?: InteriorColor[]
-  variants?:       CarVariant[]  // optional trim toggle shown in the hero (Standard vs ...)
-  brochureUrl?:    string        // Cloudinary PDF — optional, shown as download link
+  variants?: CarVariant[]  // optional trim toggle shown in the hero (Standard vs ...)
+  brochureUrl?: string        // Cloudinary PDF — optional, shown as download link
 }
 
 // ── Carousel subset ────────────────────────────────────────────────────────────
@@ -74,28 +74,28 @@ export type CarouselModel = Pick<
 
 export const models: CarModel[] = [
   {
-    slug:        'g6-pro',
-    name:        'XPENG G6 Pro',
-    tagline:     'Kecepatan. Kecerdasan. Keindahan.',
+    slug: 'g6-pro',
+    name: 'XPENG G6 Pro',
+    tagline: 'Kecepatan. Kecerdasan. Keindahan.',
     description: 'SUV listrik performa tinggi dengan teknologi XNGP terdepan.',
-    badge:       'Terlaris',
-    priceFrom:   'Rp 679.000.000',
+    badge: 'Terlaris',
+    priceFrom: 'Rp 679.000.000',
     heroImage:
       'https://res.cloudinary.com/cavemine/image/upload/v1778991671/g6_pro_iicqng.png',
     heroImageMobile:
       'https://res.cloudinary.com/cavemine/image/upload/v1778991295/g6_pro_small_ji7kkp.png',
     cardImage:
       'https://res.cloudinary.com/cavemine/image/upload/v1778940842/g6_pro_d2nmtm.png',
-    detailImage:  'https://res.cloudinary.com/cavemine/image/upload/v1778940501/g6-white_efq8qu.png',
-    brochureUrl:  'https://res.cloudinary.com/cavemine/image/upload/v1779086586/DOC-20260515-WA0001._compressed_zwyalw.pdf',
+    detailImage: 'https://res.cloudinary.com/cavemine/image/upload/v1778940501/g6-white_efq8qu.png',
+    brochureUrl: 'https://res.cloudinary.com/cavemine/image/upload/v1779086586/DOC-20260515-WA0001._compressed_zwyalw.pdf',
     specs: [
-      { label: 'WLTP Range',    value: '525',  unit: 'km',  category: 'battery' },
-      { label: '0–100 km/h',    value: '6,7',  unit: 'det', category: 'performance' },
-      { label: 'Tenaga',        value: '292',  unit: 'hp',  category: 'performance' },
-      { label: 'Torsi',         value: '440',  unit: 'Nm',  category: 'performance' },
-      { label: 'Baterai',       value: '80,8', unit: 'kWh', category: 'battery' },
-      { label: 'DC Charging',   value: '451',  unit: 'kW',  category: 'battery' },
-      { label: 'Kapasitas',     value: '5',  unit: 'kursi',  category: 'dimensions' },
+      { label: 'WLTP Range', value: '525', unit: 'km', category: 'battery' },
+      { label: '0–100 km/h', value: '6,7', unit: 'det', category: 'performance' },
+      { label: 'Tenaga', value: '292', unit: 'hp', category: 'performance' },
+      { label: 'Torsi', value: '440', unit: 'Nm', category: 'performance' },
+      { label: 'Baterai', value: '80,8', unit: 'kWh', category: 'battery' },
+      { label: 'DC Charging', value: '451', unit: 'kW', category: 'battery' },
+      { label: 'Kapasitas', value: '5', unit: 'kursi', category: 'dimensions' },
     ],
     features: [
       {
@@ -143,15 +143,15 @@ export const models: CarModel[] = [
       'https://res.cloudinary.com/cavemine/image/upload/v1778995755/g6_6_zwmcot.png',
     ],
     colors: [
-      { name: 'Arctic White',   hex: '#f2f2f2', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778940501/g6-white_efq8qu.png'  },
-      { name: 'Graphite Gray',  hex: '#4f5154', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778940491/g6-gray_vyc0wr.png'   },
-      { name: 'Midnight Black', hex: '#1a1a1a', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778940489/g6-black_xfaaa7.png'  },
-      { name: 'Silver Frost',   hex: '#b8bcc0', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778940495/g6-silver_exrgv9.png' },
-      { name: 'Stellar Purple', hex: '#5c2d8e', image: 'https://res.cloudinary.com/cavemine/image/upload/v1779107644/purple_zqmvo3.png'    },
+      { name: 'Arctic White', hex: '#f2f2f2', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778940501/g6-white_efq8qu.png' },
+      { name: 'Graphite Gray', hex: '#4f5154', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778940491/g6-gray_vyc0wr.png' },
+      { name: 'Midnight Black', hex: '#1a1a1a', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778940489/g6-black_xfaaa7.png' },
+      { name: 'Silver Frost', hex: '#b8bcc0', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778940495/g6-silver_exrgv9.png' },
+      { name: 'Stellar Purple', hex: '#5c2d8e', image: 'https://res.cloudinary.com/cavemine/image/upload/v1779107644/purple_zqmvo3.png' },
     ],
     interiorColors: [
-      { name: 'Dark Gray',   hex: '#3a3a3a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268158/G6_DARK_GREY.jpg' },
-      { name: 'Light Gray',  hex: '#e0e0e0', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/G6_WHITE_GREY.jpg' },
+      { name: 'Dark Gray', hex: '#3a3a3a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268158/G6_DARK_GREY.jpg' },
+      { name: 'Light Gray', hex: '#e0e0e0', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/G6_WHITE_GREY.jpg' },
     ],
     variants: [
       {
@@ -164,9 +164,9 @@ export const models: CarModel[] = [
         // unconfirmed numbers) — SpecGrid/CompareTable further down the page
         // still show the Standard G6 Pro's full spec set.
         specs: [
-          { label: 'Jarak Tempuh', value: '510',  unit: 'km',  category: 'battery' },
-          { label: '0–100 km/h',   value: '4,13', unit: 'det', category: 'performance' },
-          { label: 'Chip',         value: 'Canggih', unit: '', category: 'performance' },
+          { label: 'Jarak Tempuh', value: '510', unit: 'km', category: 'battery' },
+          { label: '0–100 km/h', value: '4,13', unit: 'det', category: 'performance' },
+          { label: 'Chip', value: 'Canggih', unit: '', category: 'performance' },
         ],
         // No official AWD photography yet — reusing the closest existing shot
         // (Midnight Black) as a stand-in. Swap this image URL once real photos
@@ -178,26 +178,26 @@ export const models: CarModel[] = [
     ],
   },
   {
-    slug:        'xpeng-x9-pro-facelift',
-    name:        'All New XPENG X9 Pro',
-    tagline:     'MPV Listrik Premium. Redefinisi Kemewahan.',
+    slug: 'xpeng-x9-pro-facelift',
+    name: 'All New XPENG X9 Pro',
+    tagline: 'MPV Listrik Premium. Redefinisi Kemewahan.',
     description: 'MPV listrik 6-seater untuk keluarga modern yang menuntut yang terbaik.',
-    badge:       'Baru',
-    priceFrom:   'Rp 1.219.000.000',
+    badge: 'Baru',
+    priceFrom: 'Rp 1.219.000.000',
     heroImage:
       'https://res.cloudinary.com/cavemine/image/upload/v1778991771/x9_pro_lxc9xe.png',
     heroImageMobile:
       'https://res.cloudinary.com/cavemine/image/upload/v1778991301/x9_pro_small_w5gavn.png',
-    cardImage:   'https://res.cloudinary.com/fjwmmpio/image/upload/v1787131656/xpengx9pro.png',
-    detailImage:  'https://res.cloudinary.com/cavemine/image/upload/v1778941655/x9pro-white_ax57yx.png',
-    brochureUrl:  'https://res.cloudinary.com/cavemine/image/upload/v1778990060/X9_nms0de.pdf',
+    cardImage: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1787131656/xpengx9pro.png',
+    detailImage: 'https://res.cloudinary.com/cavemine/image/upload/v1778941655/x9pro-white_ax57yx.png',
+    brochureUrl: 'https://res.cloudinary.com/cavemine/image/upload/v1778990060/X9_nms0de.pdf',
     specs: [
-      { label: 'WLTP Range',  value: '615',   unit: 'km',    category: 'battery' },
-      { label: '0–100 km/h',  value: '7,7',   unit: 'det',   category: 'performance' },
-      { label: 'Tenaga',      value: '315',   unit: 'hp',    category: 'performance' },
-      { label: 'Torsi',       value: '450',   unit: 'Nm',    category: 'performance' },
-      { label: 'Baterai',     value: '110,5', unit: 'kWh',   category: 'battery' },
-      { label: 'Kapasitas',   value: '7',     unit: 'kursi', category: 'dimensions' },
+      { label: 'WLTP Range', value: '615', unit: 'km', category: 'battery' },
+      { label: '0–100 km/h', value: '7,7', unit: 'det', category: 'performance' },
+      { label: 'Tenaga', value: '315', unit: 'hp', category: 'performance' },
+      { label: 'Torsi', value: '450', unit: 'Nm', category: 'performance' },
+      { label: 'Baterai', value: '110,5', unit: 'kWh', category: 'battery' },
+      { label: 'Kapasitas', value: '7', unit: 'kursi', category: 'dimensions' },
     ],
     features: [
       {
@@ -282,38 +282,38 @@ export const models: CarModel[] = [
       '/Gallery/x9-pro-interior-wide.jpg',
     ],
     colors: [
-      { name: 'Nebula White',    hex: '#f2f2f2', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778941655/x9pro-white_ax57yx.png'  },
-      { name: 'Dark Night Black',hex: '#1a1a1a', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778941594/x9pro-black_ag4kna.png'  },
+      { name: 'Nebula White', hex: '#f2f2f2', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778941655/x9pro-white_ax57yx.png' },
+      { name: 'Dark Night Black', hex: '#1a1a1a', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778941594/x9pro-black_ag4kna.png' },
       { name: 'Crescent Silver', hex: '#b8bcc0', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778941642/x9pro-silver_bi7bsd.png' },
     ],
     interiorColors: [
-      { name: 'Coffee',           hex: '#4A2C2A', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/X9_Coffee.jpg' },
-      { name: 'Rose Brown',       hex: '#B08968', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/X9_Rose_Brown.jpg' },
-      { name: 'Meteorite Black',  hex: '#1a1a1a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/X9_Metorite_Black.jpg' },
+      { name: 'Coffee', hex: '#4A2C2A', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/X9_Coffee.jpg' },
+      { name: 'Rose Brown', hex: '#B08968', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/X9_Rose_Brown.jpg' },
+      { name: 'Meteorite Black', hex: '#1a1a1a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/X9_Metorite_Black.jpg' },
     ],
   },
   {
-    slug:        'xpeng-x9-pro-plus-facelift',
-    name:        'All New XPENG X9 Pro+',
-    tagline:     'Puncak dari Segalanya.',
+    slug: 'xpeng-x9-pro-plus-facelift',
+    name: 'All New XPENG X9 Pro+',
+    tagline: 'Puncak dari Segalanya.',
     description: 'Edisi Pro dari X9 dengan fitur dan finishing premium eksklusif.',
-    badge:       'Premium',
-    priceFrom:   'Rp 1.259.000.000',
+    badge: 'Premium',
+    priceFrom: 'Rp 1.259.000.000',
     heroImage:
       'https://res.cloudinary.com/cavemine/image/upload/v1778991945/x9_pro_plus_wt8r3s.png',
     heroImageMobile:
       'https://res.cloudinary.com/cavemine/image/upload/v1778991297/x9_pro_plus_small_ftxwwz.png',
     cardImage:
       'https://res.cloudinary.com/fjwmmpio/image/upload/v1787131680/xpengx9proplus.png',
-    detailImage:  'https://res.cloudinary.com/cavemine/image/upload/v1778941655/x9pro-white_ax57yx.png',
-    brochureUrl:  'https://res.cloudinary.com/cavemine/image/upload/v1778990060/X9_nms0de.pdf',
+    detailImage: 'https://res.cloudinary.com/cavemine/image/upload/v1778941655/x9pro-white_ax57yx.png',
+    brochureUrl: 'https://res.cloudinary.com/cavemine/image/upload/v1778990060/X9_nms0de.pdf',
     specs: [
-      { label: 'WLTP Range',  value: '615',   unit: 'km',    category: 'battery' },
-      { label: '0–100 km/h',  value: '7,7',   unit: 'det',   category: 'performance' },
-      { label: 'Tenaga',      value: '315',   unit: 'hp',    category: 'performance' },
-      { label: 'Torsi',       value: '640',   unit: 'Nm',    category: 'performance' },
-      { label: 'Baterai',     value: '110,5', unit: 'kWh',   category: 'battery' },
-      { label: 'Kapasitas',   value: '7',     unit: 'kursi', category: 'dimensions' },
+      { label: 'WLTP Range', value: '615', unit: 'km', category: 'battery' },
+      { label: '0–100 km/h', value: '7,7', unit: 'det', category: 'performance' },
+      { label: 'Tenaga', value: '315', unit: 'hp', category: 'performance' },
+      { label: 'Torsi', value: '640', unit: 'Nm', category: 'performance' },
+      { label: 'Baterai', value: '110,5', unit: 'kWh', category: 'battery' },
+      { label: 'Kapasitas', value: '7', unit: 'kursi', category: 'dimensions' },
     ],
     features: [
       {
@@ -398,36 +398,36 @@ export const models: CarModel[] = [
       '/Gallery/x9-pro-interior-wide.jpg',
     ],
     colors: [
-      { name: 'Nebula White',    hex: '#f2f2f2', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778941655/x9pro-white_ax57yx.png'  },
-      { name: 'Dark Night Black',hex: '#1a1a1a', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778941594/x9pro-black_ag4kna.png'  },
+      { name: 'Nebula White', hex: '#f2f2f2', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778941655/x9pro-white_ax57yx.png' },
+      { name: 'Dark Night Black', hex: '#1a1a1a', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778941594/x9pro-black_ag4kna.png' },
       { name: 'Crescent Silver', hex: '#b8bcc0', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778941642/x9pro-silver_bi7bsd.png' },
-      { name: 'Matte Gray',      hex: '#6b6f72', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778941595/x9pro-gray_zgecv7.png'   },
+      { name: 'Matte Gray', hex: '#6b6f72', image: 'https://res.cloudinary.com/cavemine/image/upload/v1778941595/x9pro-gray_zgecv7.png' },
     ],
     interiorColors: [
-      { name: 'Coffee',           hex: '#4A2C2A', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/X9_Coffee.jpg' },
-      { name: 'Rose Brown',       hex: '#B08968', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/X9_Rose_Brown.jpg' },
-      { name: 'Meteorite Black',  hex: '#1a1a1a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/X9_Metorite_Black.jpg' },
+      { name: 'Coffee', hex: '#4A2C2A', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/X9_Coffee.jpg' },
+      { name: 'Rose Brown', hex: '#B08968', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/X9_Rose_Brown.jpg' },
+      { name: 'Meteorite Black', hex: '#1a1a1a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/X9_Metorite_Black.jpg' },
     ],
   },
   {
-    slug:        'xpeng-mona-l03',
-    name:        'XPENG Mona L03',
-    tagline:     'SUV Coupe Cerdas. Teknologi untuk Semua.',
+    slug: 'xpeng-mona-l03',
+    name: 'XPENG Mona L03',
+    tagline: 'SUV Coupe Cerdas. Teknologi untuk Semua.',
     description: 'SUV coupe listrik AI generasi terbaru XPENG, dirancang untuk pasar global dengan teknologi cerdas yang mudah diakses.',
-    badge:       'Baru',
-    priceFrom:   'Segera hadir',
-    heroImage:       'https://res.cloudinary.com/fjwmmpio/image/upload/v1788174844/Mona_LO3_hero.jpg',
+    badge: 'Baru',
+    priceFrom: 'Segera hadir',
+    heroImage: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788174844/Mona_LO3_hero.jpg',
     heroImageMobile: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788174895/Mona_LO3_hero_mobile.jpg',
-    cardImage:       'https://res.cloudinary.com/fjwmmpio/image/upload/v1788174585/XPeng_Mona_LO3.jpg',
-    detailImage:     'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173330/Phantom_Purple.jpg',
+    cardImage: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788174585/XPeng_Mona_LO3.jpg',
+    detailImage: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173330/Phantom_Purple.jpg',
     specs: [
-      { label: 'WLTP Range',  value: '440',  unit: 'km',    category: 'battery' },
-      { label: '0–100 km/h',  value: '4,5',  unit: 'det',   category: 'performance' },
-      { label: 'Tenaga',      value: '388',  unit: 'hp',    category: 'performance' },
-      { label: 'Torsi',       value: '431',  unit: 'Nm',    category: 'performance' },
-      { label: 'Baterai',     value: '71,2', unit: 'kWh',   category: 'battery' },
-      { label: 'DC Charging', value: '236',  unit: 'kW',    category: 'battery' },
-      { label: 'Kapasitas',   value: '5',    unit: 'kursi', category: 'dimensions' },
+      { label: 'WLTP Range', value: '440', unit: 'km', category: 'battery' },
+      { label: '0–100 km/h', value: '4,5', unit: 'det', category: 'performance' },
+      { label: 'Tenaga', value: '388', unit: 'hp', category: 'performance' },
+      { label: 'Torsi', value: '431', unit: 'Nm', category: 'performance' },
+      { label: 'Baterai', value: '71,2', unit: 'kWh', category: 'battery' },
+      { label: 'DC Charging', value: '236', unit: 'kW', category: 'battery' },
+      { label: 'Kapasitas', value: '5', unit: 'kursi', category: 'dimensions' },
     ],
     features: [
       {
@@ -482,37 +482,37 @@ export const models: CarModel[] = [
     ],
     colors: [
       { name: 'Phantom Purple', hex: '#3c2a4a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173330/Phantom_Purple.jpg' },
-      { name: 'Arctic White',   hex: '#f2f2f0', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173339/Artic_White.jpg' },
+      { name: 'Arctic White', hex: '#f2f2f0', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173339/Artic_White.jpg' },
       { name: 'Midnight Black', hex: '#161616', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173347/Midnight_Black.jpg' },
-      { name: 'Silver Frost',   hex: '#c7cbce', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173354/Silver_Frost.jpg' },
-      { name: 'Rock Gray',      hex: '#6f7378', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173363/Rock_Gray.jpg' },
-      { name: 'Black Edition',  hex: '#0a0a0a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173370/Black_Edition.jpg' },
+      { name: 'Silver Frost', hex: '#c7cbce', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173354/Silver_Frost.jpg' },
+      { name: 'Rock Gray', hex: '#6f7378', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173363/Rock_Gray.jpg' },
+      { name: 'Black Edition', hex: '#0a0a0a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788173370/Black_Edition.jpg' },
     ],
     interiorColors: [
-      { name: 'Dark Grey',  hex: '#3a3a3a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/MonaLO3_Dark_Grey.jpg' },
+      { name: 'Dark Grey', hex: '#3a3a3a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/MonaLO3_Dark_Grey.jpg' },
       { name: 'White Grey', hex: '#e0e0e0', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1788268157/MonaLO3_White_Grey.jpg' },
     ],
   },
   {
-    slug:        'xpeng-g9',
-    name:        'XPENG G9',
-    tagline:     'SUV Flagship Cerdas. Premium Seperti Biasa.',
+    slug: 'xpeng-g9',
+    name: 'XPENG G9',
+    tagline: 'SUV Flagship Cerdas. Premium Seperti Biasa.',
     description: 'SUV listrik flagship XPENG dengan siluet fastback, kabin Nappa mewah berlayar ganda 2.4K, XPILOT ASSIST, suspensi udara dual-chamber, dan platform 800V pengisian 5C.',
-    badge:       'Flagship',
-    priceFrom:   'Segera hadir',
-    heroImage:       'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912721/G9-Hero_image.jpg',
+    badge: 'Flagship',
+    priceFrom: 'Segera hadir',
+    heroImage: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912721/G9-Hero_image.jpg',
     heroImageMobile: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912724/G9-Hero_Card_Image.jpg',
-    cardImage:       'https://res.cloudinary.com/fjwmmpio/image/upload/v1789889259/Xpeng_G9.jpg',
-    detailImage:     'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912539/G9-EXT-ARTIC_WHITE.jpg',
+    cardImage: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789889259/Xpeng_G9.jpg',
+    detailImage: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912539/G9-EXT-ARTIC_WHITE.jpg',
     specs: [
-      { label: 'WLTP Range',  value: '540',  unit: 'km',    category: 'battery' },
-      { label: '0–100 km/h',  value: '4,2',  unit: 'det',   category: 'performance' },
-      { label: 'Tenaga',      value: '423',  unit: 'kW',    category: 'performance' },
-      { label: 'Torsi',       value: '695',  unit: 'Nm',    category: 'performance' },
-      { label: 'Platform',    value: '800',  unit: 'V',     category: 'battery' },
+      { label: 'WLTP Range', value: '540', unit: 'km', category: 'battery' },
+      { label: '0–100 km/h', value: '4,2', unit: 'det', category: 'performance' },
+      { label: 'Tenaga', value: '423', unit: 'kW', category: 'performance' },
+      { label: 'Torsi', value: '695', unit: 'Nm', category: 'performance' },
+      { label: 'Platform', value: '800', unit: 'V', category: 'battery' },
       { label: 'Charging 10–80%', value: '12', unit: 'menit', category: 'battery' },
-      { label: 'Kapasitas',   value: '5',    unit: 'kursi', category: 'dimensions' },
-      { label: 'Baterai',     value: '98', unit: 'kWh',   category: 'battery' },
+      { label: 'Kapasitas', value: '5', unit: 'kursi', category: 'dimensions' },
+      { label: 'Baterai', value: '98', unit: 'kWh', category: 'battery' },
     ],
     features: [
       {
@@ -559,17 +559,17 @@ export const models: CarModel[] = [
       'https://res.cloudinary.com/fjwmmpio/image/upload/v1789913732/G9-GALERI-5.jpg',
     ],
     colors: [
-      { name: 'Arctic White',        hex: '#f2f2f0', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912539/G9-EXT-ARTIC_WHITE.jpg' },
-      { name: 'Graphite Gray',       hex: '#4a4d50', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912539/G9-EXT-GRAPHITE_GRAY.jpg' },
-      { name: 'Midnight Black',      hex: '#1c1e21', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912539/G9-EXT-MIDNIGHT_BLACK.jpg' },
-      { name: 'Silver Frost',        hex: '#c7cbce', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912539/G9-EXT-SILVER_FROST.jpg' },
+      { name: 'Arctic White', hex: '#f2f2f0', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789970087/G9-EXT-ARTIC-REVISION.jpg' },
+      { name: 'Graphite Gray', hex: '#4a4d50', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789970087/G9-EXT-GRAPHITE-REVISION.jpg' },
+      { name: 'Midnight Black', hex: '#1c1e21', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789970087/G9-EXT-MIDNIGHT-REVISION.jpg' },
+      { name: 'Silver Frost', hex: '#c7cbce', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789970087/G9-EXT-SILVER-REVISION.jpg' },
       { name: 'Kaitoke Green Matte', hex: '#33493d', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912539/G9-EXT-KAITOKE_GREEN_MATTE.jpg' },
-      { name: 'Black Edition',       hex: '#0a0a0a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912541/G9-EXT-BLACK_EDITION.jpg' },
+      { name: 'Black Edition', hex: '#0a0a0a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789970087/G9-EXT-BLACK-REVISION.jpg' },
     ],
     interiorColors: [
-      { name: 'Dark',       hex: '#3a3a3a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912628/G9-INT-dark.jpg' },
-      { name: 'Coffee',     hex: '#6b4a3a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912628/G9-INT-COFFEE.jpg' },
-      { name: 'Saddle',     hex: '#a0673a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912630/G9-INT-SADDLE.jpg' },
+      { name: 'Dark', hex: '#3a3a3a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912628/G9-INT-dark.jpg' },
+      { name: 'Coffee', hex: '#6b4a3a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912628/G9-INT-COFFEE.jpg' },
+      { name: 'Saddle', hex: '#a0673a', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912630/G9-INT-SADDLE.jpg' },
       { name: 'Light Gray', hex: '#d0d0d0', image: 'https://res.cloudinary.com/fjwmmpio/image/upload/v1789912632/G9-INT-LIGHT_GRAY.jpg' },
     ],
   },
